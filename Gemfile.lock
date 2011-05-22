@@ -30,6 +30,8 @@ GEM
     activesupport (3.0.7)
     arel (2.0.10)
     builder (2.1.2)
+    ckeditor (3.4.2.pre)
+      mime-types (>= 1.16)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     i18n (0.5.0)
@@ -39,6 +41,9 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    paperclip (2.3.11)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
     polyglot (0.3.1)
     rack (1.2.2)
     rack-mount (0.6.14)
@@ -70,6 +75,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ckeditor (= 3.4.2.pre)
+  paperclip
   rails (= 3.0.7)
   sqlite3
   will_paginate (~> 3.0.pre2)
