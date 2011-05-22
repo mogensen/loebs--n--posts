@@ -1,4 +1,6 @@
 <%= javascript_include_tag :ckeditor %>
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -14,11 +16,11 @@
 
   <div class="field">
     <%= f.label :description %><br />
-	<%= f.cktext_area :description, :toolbar=>'Full', :width=>'600px', :height=>'400px' %>
+	<%= f.text_area :description, :toolbar=>'Full', :width=>'600px', :height=>'400px' %>
   </div>
   <div class="field">
     <%= f.label :rigtig_svar %><br />
-	<%= f.cktext_area :rigtig_svar, :toolbar=>'Full', :width=>'600px', :height=>'400px' %>
+	<%= f.text_area :rigtig_svar, :toolbar=>'Full', :width=>'600px', :height=>'400px' %>
   </div>
   <div class="field">
     <%= f.label :rigtig_svar_ans %><br />
@@ -26,7 +28,7 @@
   </div>
   <div class="field">
     <%= f.label :forkert_svar %><br />
-	<%= f.cktext_area :forkert_svar, :toolbar=>'Full', :width=>'600px', :height=>'400px' %>
+	<%= f.text_area :forkert_svar, :toolbar=>'Full', :width=>'600px', :height=>'400px' %>
   </div>
   <div class="field">
     <%= f.label :try_again %><br />
