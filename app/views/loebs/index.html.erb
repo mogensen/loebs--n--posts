@@ -1,23 +1,19 @@
-<h1>Listing loebs</h1>
+<h1>Alle løb</h1>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
+    <th>Navn</th>
     <th></th>
   </tr>
 
 <% @loebs.each do |loeb| %>
   <tr>
     <td><%= loeb.name %></td>
-    <td><%= link_to 'Show', loeb %></td>
-    <td><%= link_to 'Edit', edit_loeb_path(loeb) %></td>
-    <td><%= link_to 'Destroy', loeb, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Vis alle poster', loeb %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Loeb', new_loeb_path %>
+<%= link_to 'Nyt løb', new_loeb_path %>

@@ -7,6 +7,7 @@
 <h2>Lav nyt</h2>
 <%= link_to "Nyt loeb", new_loeb_path %>
 <%= link_to "Ny post", new_post_path %>
+<%= link_to "Alle loeb", loebs_path %>
 <script>
 	$(document).ready(function() {
 		$('#goto_post').click(function() {
@@ -14,3 +15,14 @@
 		});
 	});
 </script>
+
+	<h3>Brugs guide</h3>
+	<p>
+	Du kan indtaste et løb, som består af en overskrift. Efterfølgende kan posterne oprettes.
+	</p>	<p>
+	Hver post består af tre tekster. En tekst der bliver vist til brugeren som indeholder selve beskrivelsen af posten, samt to andre tekster. En tekst der bliver vist ved korrekt svar, og en der bliver vist ved forkert svar. 
+		</p><p>	
+	Hver post vil få et ID, som så skal indtastes på forsiden. Når ID'et bliver indtastet bliver post beskrivelsen hentet frem. Her kan brugeren så give sit svar, som så enten resultere i at teksten hvis det rigtige svar bliver indtastet bliver vist, eller teksten ved det forkerte svar. Samt, hvis der er givet mulighed for det, et link til "Prøv igen" hvis brugeren svarede forkert. Ellers er der et link som går tilbage til forsiden.
+	</p>	<p>
+	Spørgsmål, forslag eller ligenende. Kontakt david på davsebamse@gmail.com.
+	</p>

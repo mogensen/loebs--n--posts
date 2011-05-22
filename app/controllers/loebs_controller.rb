@@ -14,7 +14,6 @@ class LoebsController < ApplicationController
   # GET /loebs/1.xml
   def show
     @loeb = Loeb.find(params[:id])
-    @posts = @loeb.posts.paginate :page => params[:page]
     
     respond_to do |format|
       format.html # show.html.erb

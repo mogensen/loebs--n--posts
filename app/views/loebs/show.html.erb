@@ -4,10 +4,21 @@
   <b>Name:</b>
   <%= @loeb.name %>
 </p>
-<%= link_to 'Edit', edit_loeb_path(@loeb) %> |
-<%= link_to 'Back', loebs_path %>
+<%= link_to 'Ændre løbs navn', edit_loeb_path(@loeb) %> |
+<%= link_to 'Til alle løb', loebs_path %>
 <p>
-<%= puts @posts %>
-<%= will_paginate @posts %>
-<%= page_entries_info @posts %>
 </p>
+<table>
+  <tr>
+    <th>Post id (det brugeren skal taste)</th>
+    <th>Første 30 tegn af post beskrivelsen</th>
+  </tr>
+
+<% @loeb.posts.each do |p| %>
+  <tr>
+    <td><%= p.id %></td>
+    <td><%= p.description[0..30] %></td>
+  </tr>
+<% end %>
+</table>
+

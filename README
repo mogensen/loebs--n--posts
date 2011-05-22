@@ -9,3 +9,13 @@ Lave loeb, altsa man skal kunne binde posterne sammen saa programmet kan finde u
 
 Og sikkert ogsaa mere.
 
+== Brugs guide ==
+
+Du kan indtaste et løb, som består af en overskrift. Efterfølgende kan posterne oprettes.
+
+Hver post består af tre tekster. En tekst der bliver vist til brugeren som indeholder selve beskrivelsen af posten, samt to andre tekster. En tekst der bliver vist ved korrekt svar, og en der bliver vist ved forkert svar. 
+
+Hver post vil få et ID, som så skal indtastes på forsiden. Når ID'et bliver indtastet bliver post beskrivelsen hentet frem. Her kan brugeren så give sit svar, som så enten resultere i at teksten hvis det rigtige svar bliver indtastet bliver vist, eller teksten ved det forkerte svar. Samt, hvis der er givet mulighed for det, et link til "Prøv igen" hvis brugeren svarede forkert. Ellers er der et link som går tilbage til forsiden.
+
+Spørgsmål, forslag eller ligenende. Kontakt david på davsebamse@gmail.com.
+
