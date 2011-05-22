@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <%= @post.description %>
+  <%= @post.description.html_safe %>
 </p>
 
 <input type=text name='post_id' id='post_id'><button id='goto_post'>Svar</button>
