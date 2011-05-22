@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b><%= @post.loeb.name %></b>
-  
+  <b><%= @post.loeb.name unless @post.loeb.nil? %></b>
+</p>
+<p>
+  <b>Post id: <%= @post.id %></b>
 </p>
 
 <p>

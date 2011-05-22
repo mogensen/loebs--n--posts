@@ -20,7 +20,7 @@
     <td><%= post.rigtig_svar_ans %></td>
     <td><%= post.forkert_svar %></td>
     <td><%= post.try_again %></td>
-    <td><%= post.loeb_id %></td>
+    <td><%= post.loeb.name unless post.loeb.nil? %></td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -1,4 +1,4 @@
-<% if @post.rigtig_svar_ans == params[:answer] %>
+<% if @post.rigtig_svar_ans.upcase == params[:answer].upcase %>
 	<%= @post.rigtig_svar.html_safe %>
 	<%= link_to('Retur', '/') %>
 <% else %>

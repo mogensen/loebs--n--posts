@@ -15,28 +15,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :description %><br />
-	<%= f.text_area :description, :toolbar=>'Full', :width=>'600px', :height=>'400px' %>
+    <%= f.label :loeb_id %><br />
+    <%= f.select :loeb_id, options_for_select(@loebs) %>
   </div>
   <div class="field">
-    <%= f.label :rigtig_svar %><br />
-	<%= f.text_area :rigtig_svar, :toolbar=>'Full', :width=>'600px', :height=>'400px' %>
+    <%= f.label :post_beskrivelsen %><br />
+	<%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :rigtig_svar_ans %><br />
+    <%= f.label :det_rigtige_svar %><br />
     <%= f.text_field :rigtig_svar_ans %>
   </div>
   <div class="field">
-    <%= f.label :forkert_svar %><br />
-	<%= f.text_area :forkert_svar, :toolbar=>'Full', :width=>'600px', :height=>'400px' %>
+    <%= f.label :tekst_ved_rigtig_svar %><br />
+	<%= f.text_area :rigtig_svar %>
   </div>
   <div class="field">
-    <%= f.label :try_again %><br />
+    <%= f.label :tekst_ved_forkert_svar %><br />
+	<%= f.text_area :forkert_svar %>
+  </div>
+  <div class="field">
+    <%= f.label :proev_igen_ved_forkert_svar %><br />
     <%= f.check_box :try_again %>
-  </div>
-  <div class="field">
-    <%= f.label :loeb_id %><br />
-    <%= f.select :loeb_id, options_for_select(@loebs) %>
   </div>
   <div class="actions">
     <%= f.submit %>
