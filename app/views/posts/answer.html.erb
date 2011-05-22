@@ -1,0 +1,8 @@
+<% if @post.rigtig_svar_ans == params[:answer] %>
+	<%= @post.rigtig_svar %>
+	<%= link_to('Retur', '/') %>
+<% else %>
+	<%= @post.forkert_svar %>
+	<%= link_to('Proev igen', @post) if @post.try_again %>
+	<%= link_to('Retur', '/') %>
+<% end %>

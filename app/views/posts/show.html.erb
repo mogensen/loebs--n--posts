@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= @post.loeb.name %></b>
+  
+</p>
+
+<p>
+  <%= @post.description %>
+</p>
+
+<input type=text name='post_id' id='post_id'><button id='goto_post'>Svar</button>
+<script>
+	$(document).ready(function() {
+		$('#goto_post').click(function() {
+			window.location = '/posts/<%= @post.id%>/'+$('#post_id').val();
+		});
+	});
+</script>

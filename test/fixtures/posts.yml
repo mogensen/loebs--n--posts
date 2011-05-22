@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  description: MyText
+  rigtig_svar: MyText
+  rigtig_svar_ans: MyString
+  forkert_svar: MyText
+  try_again: false
+  loeb_id: 1
+
+two:
+  description: MyText
+  rigtig_svar: MyText
+  rigtig_svar_ans: MyString
+  forkert_svar: MyText
+  try_again: false
+  loeb_id: 1

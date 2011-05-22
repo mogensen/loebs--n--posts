@@ -1,0 +1,15 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+<%= link_to "Nyt loeb", loebs_path %>
+<%= link_to "Ny post", posts_path %>
+<h2>Vaelg et loeb herunder for at komme igang</h2>
+
+<h2>Indtast post ID</h2>
+<input type=text name='post_id' id='post_id'><button id='goto_post'>Tryk for at finde post</button>
+<script>
+	$(document).ready(function() {
+		$('#goto_post').click(function() {
+			window.location = '/posts/'+$('#post_id').val();
+		});
+	});
+</script>

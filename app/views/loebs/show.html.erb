@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @loeb.name %>
+</p>
+<%= link_to 'Edit', edit_loeb_path(@loeb) %> |
+<%= link_to 'Back', loebs_path %>
+<p>
+<%= puts @posts %>
+<%= will_paginate @posts %>
+<%= page_entries_info @posts %>
+</p>
