@@ -1,0 +1,107 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	padding: 1em;
+	background: #dbdcf0;
+	font-size: 1em;
+	font-family: Copse, helvetica, sans-serif;
+	letter-spacing: .07em;
+	line-height: 1.5em;
+}
+h1, h2, h3 {
+	font-family: Artifika, helvetica, sans-serif;
+	text-shadow: 0 .06em .08em rgba(0,0,0,.4);
+	margin: .7em 0 .3em;
+}
+p {
+	margin: .5em 0;
+}
+.buttonContainer {
+	display: inline-block;
+	background-color: rgba(0,0,0,.05);
+	border-radius: .5em;
+	padding: .3em .3em .35em .2em;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.2);
+}
+.buttonContainer.block {
+	display: block;
+}
+/* Form element commons */
+a.button,
+button,
+input[type="submit"],
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+	display: inline-block;
+	border: 1px solid;
+	border-radius: .5em;
+	padding: .2em .5em;
+	height: auto;
+	vertical-align: middle;
+	margin: .1em;
+	text-decoration: none;
+}
+/* Buttons */
+a.button,
+button,
+input[type="submit"] {
+	color: #000;
+	text-shadow: 0 1px 1px rgba(0,100,100,.5);
+	font-size: 1em;
+	font-family: Artifika, helvetica, sans-serif;
+	border-radius: .4em;
+	border-color: #9ed024;
+	margin-top: -.15em;
+	-webkit-box-shadow: 0 .15em 0 #678817;
+	background: -webkit-linear-gradient(#aaf100, #92ca0a);
+}
+a.button:active,
+button:active,
+input[type="submit"]:active {
+	-webkit-box-shadow: 0 .1em 0 #678817;
+	margin-top: 0;
+	margin-bottom: -.15em;
+}
+/* User input */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+	color: #000;
+	background: rgba(255,255,255, .5);
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.4);
+	border: 0;
+	margin: -.1em .13em;
+	font-size: 1em;
+	border-radius: .4em;
+	line-height: 1.5em;
+	outline: 0;
+}
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+	background: rgba(255,255,255, .8);
+}
+input[type="text"].invisible,
+input[type="number"].invisible,
+input[type="email"].invisible,
+input[type="password"].invisible {
+	font-family: helvetica;
+	background: none;
+	box-shadow: none;
+	border: 0;
+	margin: -.1em 0;
+	font-size: 1em;
+	border-radius: 0;
+}
+#guide {
+	background: rgba(150,255,150,.2);
+	border-radius: .5em;
+	padding: .4em 1em .6em;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.4);
+}

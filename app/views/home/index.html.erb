@@ -1,13 +1,19 @@
 <h1>Online poster</h1>
 <p>Find post id'et og indtast det laengere nede</p>
 
+<section id="requestPost">
 <h2>Indtast post ID</h2>
-<input type=text name='post_id' id='post_id'><button id='goto_post'>Tryk for at finde post</button>
+<p class="buttonContainer">
+	<input type=text name='post_id' id='post_id'><button id='goto_post'>Hent post</button>
+</p>
+	</section>
 
+<section id="createPost">
 <h2>Lav nyt</h2>
-<%= link_to "Nyt loeb", new_loeb_path %>
-<%= link_to "Ny post", new_post_path %>
-<%= link_to "Alle loeb", loebs_path %>
+<p class="buttonContainer">
+<%= link_to "Nyt loeb", new_loeb_path, :class=> 'button' %>
+<%= link_to "Ny post", new_post_path, :class=> 'button' %>
+<%= link_to "Alle loeb", loebs_path, :class=> 'button' %>
 <script>
 	$(document).ready(function() {
 		$('#goto_post').click(function() {
@@ -15,7 +21,9 @@
 		});
 	});
 </script>
-
+</p>
+	</section>
+<section id="guide">
 	<h3>Brugs guide</h3>
 	<p>
 	Du kan indtaste et løb, som består af en overskrift. Efterfølgende kan posterne oprettes.
@@ -26,3 +34,4 @@
 	</p>	<p>
 	Spørgsmål, forslag eller ligenende. Kontakt david på davsebamse@gmail.com.
 	</p>
+	</section>
