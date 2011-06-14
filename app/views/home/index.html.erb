@@ -1,12 +1,15 @@
+
 <h1>Online poster</h1>
 <p>Find post id'et og indtast det længere nede</p>
 
 <section id="requestPost">
 <h2>Indtast post ID</h2>
-<p class="buttonContainer">
-	<input type=text name='post_id' id='post_id'><button id='goto_post'>Hent post</button>
-</p>
+<p>
+	<form class="buttonContainer">
+	<input type=number name='post_id' id='post_id'><button id='goto_post'>Hent post</button>
+	</form>
 	</section>
+</p>
 <% if params.has_key? "admin" %>
 <section id="createPost">
 <h2>Lav nyt</h2>
@@ -14,13 +17,7 @@
 <%= link_to "Nyt løb", new_loeb_path, :class=> 'button' %>
 <%= link_to "Ny post", new_post_path, :class=> 'button' %>
 <%= link_to "Alle løb", loebs_path, :class=> 'button' %>
-<script>
-	$(document).ready(function() {
-		$('#goto_post').click(function() {
-			window.location = '/posts/'+$('#post_id').val();
-		});
-	});
-</script>
+
 </p>
 	</section>
 <section id="guide">
@@ -35,4 +32,14 @@
 	Spørgsmål, forslag eller ligenende. Kontakt david på davsebamse@gmail.com.
 	</p>
 	</section>
+	<%else%>
+	<section id="guide">
+		<h3>Brugs guide</h3>
+<p>	
+		Hver post vil få et ID, som så skal indtastes på forsiden. Når ID'et bliver indtastet bliver post beskrivelsen hentet frem. Her kan du så give sit svar, som så enten resultere i at teksten hvis det rigtige svar bliver indtastet bliver vist, eller teksten ved det forkerte svar. Samt, hvis der er givet mulighed for det, et link til "Prøv igen" hvis du svarede forkert. Ellers er der et link som går tilbage til forsiden.
+		</p>	<p>
+		Spørgsmål, forslag eller ligenende. Kontakt david på davsebamse@gmail.com.
+		</p>
+		</section>
+	
 	<%end%>
