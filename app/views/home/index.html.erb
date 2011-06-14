@@ -7,7 +7,7 @@
 	<input type=text name='post_id' id='post_id'><button id='goto_post'>Hent post</button>
 </p>
 	</section>
-
+<% if params.has_key? "admin" %>
 <section id="createPost">
 <h2>Lav nyt</h2>
 <p class="buttonContainer">
@@ -35,3 +35,4 @@
 	Spørgsmål, forslag eller ligenende. Kontakt david på davsebamse@gmail.com.
 	</p>
 	</section>
+	<%end%>
