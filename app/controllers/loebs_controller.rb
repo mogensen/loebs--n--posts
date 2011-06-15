@@ -1,5 +1,3 @@
-require 'date'
-
 class LoebsController < ApplicationController
   # GET /loebs
   # GET /loebs.xml
