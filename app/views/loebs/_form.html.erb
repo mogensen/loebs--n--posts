@@ -12,8 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :navn %><br />
     <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :kontakt %><br />
+    <%= f.text_field :contact %>
+  </div>
+  <div class="field">
+    <%= f.label :start %><br />
+    <%= f.datetime_select :start %>
+  </div>
+  <div class="field">
+    <%= f.label :slut %><br />
+    <%= f.datetime_select :slut %>
   </div>
   <div class="actions">
     <%= f.submit %>

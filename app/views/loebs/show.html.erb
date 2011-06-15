@@ -1,5 +1,18 @@
 <p id="notice"><%= notice %></p>
-
+<% if params.has_key? "print" %>
+<table width="100%">
+<% @loeb.posts.each do |p| %>
+	<tr>
+		<td>Løbet <%=@loeb.name%> er udlagt af <%= @loeb.contact%>. Det strækker sig fra <%= @loeb.start.strftime("%d/%m/%Y kl. %H:%M") %> til <%=@loeb.slut.strftime("%d/%m/%Y kl. %H:%M")%></td>
+	</tr>
+  <tr>
+    <td><img src="http://qrcode.kaywa.com/img.php?s=2&d=http%3A%2F%2Floebsnposts.heroku.com%2Fposts%2F<%= p.id %>"/></td>
+    <td>Post ID: <%= p.id %></td>
+  </tr>
+	<tr><td style="border-top:solid 2px" colspan=2>&nbsp;</td></tr>
+<% end %>
+</table>
+<% else %>
 <p>
   <b>Name:</b>
   <%= @loeb.name %>
@@ -22,4 +35,4 @@
   </tr>
 <% end %>
 </table>
-
+<% end %>

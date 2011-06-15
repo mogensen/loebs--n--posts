@@ -15,8 +15,10 @@ class LoebsController < ApplicationController
   def show
     @loeb = Loeb.find(params[:id])
     
+    do_layout = params.has_key? "print"
+    
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :html => @loeb, :layout => (not do_layout)}# show.html.erb
       format.xml  { render :xml => @loeb }
     end
   end
