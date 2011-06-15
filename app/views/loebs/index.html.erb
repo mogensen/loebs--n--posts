@@ -10,6 +10,7 @@
   <tr>
     <td><%= loeb.name %></td>
     <td><%= link_to 'Vis alle poster', loeb %></td>
+    <td><%= link_to 'Print poster', loeb_path(loeb, :print=>true) %></td>
   </tr>
 <% end %>
 </table>
