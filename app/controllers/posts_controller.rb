@@ -2,12 +2,14 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
+      redirect_to '/'
+      
+#    @posts = Post.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @posts }
-    end
+#    respond_to do |format|
+#      format.html # index.html.erb
+#      format.xml  { render :xml => @posts }
+#    end
   end
 
   # GET /posts/1
