@@ -1,7 +1,7 @@
 *{margin:0;padding:0;}
 body{padding:1em;background-color:#8FAEB8;background-image:url(/images/bg-1.png),url(/images/bg-2.png),url(/images/bg-3.png);font-size:1em;font-family:Copse,helvetica,sans-serif;letter-spacing:.07em;line-height:1.5em;}
 article,section{display:block;}
-h1,h2,h3{text-shadow:0 0.06em 0.08em rgba(0, 0, 0, 0.4);margin:.6em 0 .3em;}h1 em.small,h2 em.small,h3 em.small{display:inline-block;opacity:0.5;filter:alpha(opacity=50);font-size:.5em;font-style:normal;}
+h1,h2,h3{text-shadow:0 0.06em 0.08em rgba(0, 0, 0, 0.4);margin:.6em 0 .3em;line-height:1.5em;}h1 em.small,h2 em.small,h3 em.small{display:inline-block;opacity:0.5;filter:alpha(opacity=50);font-size:.5em;font-style:normal;}
 p,ul,ol{margin:.7em 0;}
 p.responseText{font-size:1.2em;}
 ul,ol{padding-left:2em;}ul li,ol li{margin:.2em 0;}
