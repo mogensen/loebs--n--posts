@@ -1,49 +1,54 @@
-
 <h1>Online poster</h1>
-<p>Find post id'et og indtast det længere nede</p>
+<p>Find post ID'et og indtast herunder</p>
 
 <section id="requestPost">
-<h2>Indtast post ID</h2>
-<p>
-	<form class="buttonContainer">
-	<input type=number name='post_id' id='post_id'><button id='goto_post'>Hent post</button>
-	</form>
-	</section>
-</p>
-<% if params.has_key? "admin" %>
-<section id="createPost">
-<h2>Lav nyt</h2>
-<p class="buttonContainer">
-<%= link_to "Nyt løb", new_loeb_path, :class=> 'button' %>
-<%= link_to "Ny post", new_post_path, :class=> 'button' %>
-<%= link_to "Alle løb", loebs_path, :class=> 'button' %>
-
-</p>
-	</section>
-<section id="guide">
-	<h3>Brugs guide</h3>
-	<p>
-	Du kan indtaste et løb, som består af en overskrift. Efterfølgende kan posterne oprettes.
-	</p>	<p>
-	Hver post består af tre tekster. En tekst der bliver vist til brugeren som indeholder selve beskrivelsen af posten, samt to andre tekster. En tekst der bliver vist ved korrekt svar, og en der bliver vist ved forkert svar. 
-		</p><p>	
-	Hver post vil få et ID, som så skal indtastes på forsiden. Når ID'et bliver indtastet bliver post beskrivelsen hentet frem. Her kan brugeren så give sit svar, som så enten resultere i at teksten hvis det rigtige svar bliver indtastet bliver vist, eller teksten ved det forkerte svar. Samt, hvis der er givet mulighed for det, et link til "Prøv igen" hvis brugeren svarede forkert. Ellers er der et link som går tilbage til forsiden.
-	</p>	
-	<p>
-		Post ID'er eller urler kan evt. laves med <a href="http://qrcode.kaywa.com/">http://qrcode.kaywa.com/</a>
-	</p>
-	<p>
-	Spørgsmål, forslag eller ligenende. Kontakt david på davsebamse@gmail.com.
-	</p>
-	</section>
-	<%else%>
-	<section id="guide">
-		<h3>Brugs guide</h3>
-<p>	
-		Hver post vil få et ID, som så skal indtastes på forsiden. Når ID'et bliver indtastet bliver post beskrivelsen hentet frem. Her kan du så give sit svar, som så enten resultere i at teksten hvis det rigtige svar bliver indtastet bliver vist, eller teksten ved det forkerte svar. Samt, hvis der er givet mulighed for det, et link til "Prøv igen" hvis du svarede forkert. Ellers er der et link som går tilbage til forsiden.
-		</p>	<p>
-		Spørgsmål, forslag eller ligenende. Kontakt david på davsebamse@gmail.com.
+	<h2>Indtast post ID</h2>
+	<form>
+		<p class="buttonContainer">
+			<input type=number name='post_id' id='post_id' class="postIdInput"><button id='goto_post'>Hent post</button>
 		</p>
-		</section>
-	
-	<%end%>
+	</form>
+</section>
+
+<% if params.has_key? "admin" %>
+	<section id="createPost">
+		<h2>Lav nyt</h2>
+		<p class="buttonContainer">
+			<%= link_to "Nyt løb", new_loeb_path, :class=> 'button' %>
+			<%= link_to "Ny post", new_post_path, :class=> 'button' %>
+			<%= link_to "Alle løb", loebs_path, :class=> 'button' %>
+		</p>
+	</section>
+	<section id="guide">
+		<h3>Sådan gør du</h3>
+		<p>
+		Du kan indtaste et løb, som består af en overskrift. Efterfølgende kan posterne oprettes.
+		</p>	<p>
+		Hver post består af tre tekster. En tekst der bliver vist til brugeren som indeholder selve beskrivelsen af posten, samt to andre tekster. En tekst der bliver vist ved korrekt svar, og en der bliver vist ved forkert svar. 
+			</p><p>	
+		Hver post vil få et ID, som så skal indtastes på forsiden. Når ID'et bliver indtastet bliver post beskrivelsen hentet frem. Her kan brugeren så give sit svar, som så enten resultere i at teksten hvis det rigtige svar bliver indtastet bliver vist, eller teksten ved det forkerte svar. Samt, hvis der er givet mulighed for det, et link til "Prøv igen" hvis brugeren svarede forkert. Ellers er der et link som går tilbage til forsiden.
+		</p>	
+		<p>
+			Post ID'er eller urler kan evt. laves med <a href="http://qrcode.kaywa.com/">http://qrcode.kaywa.com/</a>
+		</p>
+		<p>
+			<strong>Pris:</strong> Systemet er gratis at bruge, men koster desværre lidt i data-overførsler hvis du ikke har et flatrate-abonnemement. Har man et typisk dyrt teleselskab, vil det koste 1,50 - 2,00 kroner at gå ind på siden første gang og 2-3 øre pr sidevisning herefter.
+		</p>
+		<p>
+			Spørgsmål, forslag eller ligenende: Kontakt David på <a href="mailto:davsebamse@gmail.com">davsebamse@gmail.com</a>.
+		</p>
+	</section>
+<%else%>
+	<section id="guide">
+		<h3>Sådan gør du</h3>
+		<ol>
+			<li>Find en post</li>
+			<li>Indtast postens ID i feltet herover og tryk &ldquo;Hent post&rdquo;</li>
+			<li>Svar på posten</li>
+			<li>Gør hvad posten beder dig om</li>
+		</ol>
+		<p>
+			Spørgsmål, forslag eller ligenende: Kontakt David på <a href="mailto:davsebamse@gmail.com">davsebamse@gmail.com</a>.
+		</p>
+	</section>
+<%end%>

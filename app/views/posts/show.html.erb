@@ -1,20 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b><%= @post.loeb.name unless @post.loeb.nil? %></b>
-</p>
-<p>
-  <b>Post id: <%= @post.id %></b>
-</p>
+<h1>
+  <%= @post.loeb.name unless @post.loeb.nil? %>
+</h1>
+<h2>
+	<%= @post.name %>
+	<em class="small">ID: <%= @post.id %></em>
+</h2>
 
 <p>
   <%= @post.description.html_safe %>
 </p>
 
-<input type=text name='post_id' id='post_id'><button id='goto_post'>Svar</button>
+<form id="goto_post">
+	<p class="buttonContainer">
+		<input type="text" name='post_id' id='post_id' /><input type="submit" value="Svar" />
+	</p>
+</form>
 <script>
 	$(document).ready(function() {
-		$('#goto_post').click(function() {
+		$('#goto_post').submit(function(e) {
+			e.preventDefault();
 			window.location = '/posts/<%= @post.id%>/'+$('#post_id').val();
 		});
 	});

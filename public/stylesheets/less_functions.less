@@ -1,0 +1,24 @@
+.border-radius(@r) {
+	border-radius: @r;
+	-o-border-radius: @r;
+	-moz-border-radius: @r;
+	-webkit-border-radius: @r;
+}
+.box-shadow(@x, @y, @blur, @color) {
+	box-shadow: @x @y @blur @color;
+	-o-box-shadow: @x @y @blur @color;
+	-moz-box-shadow: @x @y @blur @color;
+	-webkit-box-shadow: @x @y @blur @color;
+}
+.background-linear-gradient(@start, @end) {
+	background-color: (@start+@end)/2;
+	background: e(%("linear-gradient(center top, %d, 0%, %d 100%)", @start , @end));
+	background: -o-linear-gradient(center top, @start 0%, @end 100%);
+	background: -moz-linear-gradient(center top, @start 0%, @end 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @start), color-stop(100%, @end));
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=%d,endColorstr=%d)", @start, @end));
+}
+.opacity(@a) {
+	opacity: @a;
+	filter: e(%("alpha(opacity=%d)", @a*100));
+}

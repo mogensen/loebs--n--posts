@@ -1,8 +1,12 @@
 <% if @post.rigtig_svar_ans.upcase == params[:answer].upcase %>
-	<%= @post.rigtig_svar.html_safe %>
-	<%= link_to('Retur', '/') %>
+	<p class="responseText"><%= @post.rigtig_svar.html_safe %></p>
 <% else %>
-	<%= @post.forkert_svar.html_safe %>
-	<%= link_to('Proev igen', @post) if @post.try_again %>
-	<%= link_to('Retur', '/') %>
+	<p class="responseText">
+		<%= @post.forkert_svar.html_safe %>
+	</p>
+	<% if @post.try_again %>
+		<p class="buttonContainer">
+			<%= link_to('Prøv igen', @post, :class => 'button') %>
+		</p>
+	<% end %>
 <% end %>

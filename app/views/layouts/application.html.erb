@@ -1,19 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="da">
 <head>
-  <title>Loebnposts</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= javascript_include_tag "jquery.min.js" %>
-  <%= csrf_meta_tag %>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Loebnposts</title>
+
+	<!-- set size for mobile devices -->
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=1.0" />
+
+	<!-- style -->
+	<%= stylesheet_link_tag :all %>
+
 	<!-- fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Artifika' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Copse' rel='stylesheet' type='text/css'>
 
+	<!-- javascript -->
+	<%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag "jquery.min.js" %>
+	<%= csrf_meta_tag %>
+
+	<!-- less style  - should only be used in development, not in production -->
+	<!-- compile style.less, overwrite style.css and comment out the two files below -->
+	<!--link rel="stylesheet/less" type="text/css" href="/stylesheets/style.less"-->
+	<%#= javascript_include_tag "less-1.1.3.min.js" %>
 </head>
 <body>
-
-<%= yield %>
-<%= link_to 'Til Forsiden', '/' %>
+	<article id="wrapper">
+		<%= yield %>
+		<section id="footer">
+			<nav class="buttonContainer">
+				<%= link_to '« Til forsiden', '/', :class=> 'button' %>
+			</nav>
+		</section>
+	</article>
 </body>
 </html>
