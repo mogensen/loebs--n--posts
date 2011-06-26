@@ -1,4 +1,5 @@
 *{margin:0;padding:0;}
+html{height:100%;}
 body{padding:1em;background-color:#8FAEB8;background-image:url(/images/bg-1.png),url(/images/bg-2.png),url(/images/bg-3.png);font-size:1em;font-family:Copse,helvetica,sans-serif;letter-spacing:.07em;line-height:1.5em;}
 article,section{display:block;}
 h1,h2,h3{text-shadow:0 0.06em 0.08em rgba(0, 0, 0, 0.4);margin:.6em 0 .3em;line-height:1.5em;}h1 em.small,h2 em.small,h3 em.small{display:inline-block;opacity:0.5;filter:alpha(opacity=50);font-size:.5em;font-style:normal;}
@@ -18,5 +19,5 @@ input[type="text"].invisible,input[type="number"].invisible,input[type="email"].
 section#requestPost,section#createPost{float:left;width:20em;}
 section#requestPost{margin-right:1em;padding-right:1em;}
 #guide{clear:both;background:rgba(150, 255, 150, 0.2);border-radius:0.5em;-o-border-radius:0.5em;-moz-border-radius:0.5em;-webkit-border-radius:0.5em;padding:.4em 1em .6em;-webkit-box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.4);}
-@media screen and (max-width: 900px){body{padding:0;} #wrapper{width:auto;border-radius:0;-o-border-radius:0;-moz-border-radius:0;-webkit-border-radius:0;}}@media screen and (max-width: 400px){#wrapper{margin-top:95px;}#wrapper>h1:first-child{margin-top:-80px;font-size:2.2em;}#wrapper>h1:first-child img#logo{height:65px;width:65px;}}.new_loeb label{display:block;font-size:1.1em;margin:.5em 0 .2em 0;padding:.2em 0 0;}
+@media screen and (min-width: 1024px){body{background-image:url(/images/bg-1.png),url(/images/bg-2.png),url(/images/bg-3.png),-webkit-radial-gradient(circle, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3));}}@media screen and (max-width: 900px){body{padding:0;} #wrapper{width:auto;border-radius:0;-o-border-radius:0;-moz-border-radius:0;-webkit-border-radius:0;}}@media screen and (max-width: 400px){#wrapper{margin-top:95px;}#wrapper>h1:first-child{margin-top:-80px;font-size:2.2em;}#wrapper>h1:first-child img#logo{height:65px;width:65px;}}.new_loeb label{display:block;font-size:1.1em;margin:.5em 0 .2em 0;padding:.2em 0 0;}
 .new_loeb .actions{margin:1em 0;}
