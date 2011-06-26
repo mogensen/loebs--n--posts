@@ -11,12 +11,13 @@
 <p>
   <%= @post.description.html_safe %>
 </p>
-
+<% if @post.post_type != "human" %>
 <form id="goto_post">
 	<p class="buttonContainer">
 		<input type="text" name='post_id' id='post_id' /><input type="submit" value="Svar" />
 	</p>
 </form>
+<% end %>
 <script>
 	$(document).ready(function() {
 		$('#goto_post').submit(function(e) {

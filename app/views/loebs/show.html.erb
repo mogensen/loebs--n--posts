@@ -31,14 +31,25 @@ require 'date'
   <tr>
     <th>Post id (det brugeren skal taste)</th>
     <th>Post navn</th>
+    <th>Post placering</th>
   </tr>
 
+<% if @loeb.posts.empty? %>
+<h3>Kom godt igang</h3>
+<p>
+	Du har nu oprettet et løb, men manger at oprette nogle poster. På de to links nenden for kan du oprette poster. De levende poster indeholder ingen spørgsmål og svar, men blot en tekst. Det kan du bruge hvis holdet bare skal sendes videre eller det er en levende post. Det andet link giver at delterne skal svare rigtigt på et spørgsmål for at komme videre.
+</p>
+<% else %>
 <% @loeb.posts.each do |p| %>
   <tr>
     <td><%= p.id %></td>
     <td><%= p.name %></td>
+    <td><%= p.placement %></td>
 	<td><%= link_to 'Opdater post', edit_post_path(p) %></p>
   </tr>
 <% end %>
 </table>
 <% end %>
+<% end %>
+<%= link_to 'Opret spørgsmåls post', new_post_path(:type=>"normal", :loeb => @loeb.id) %>
+<%= link_to 'Opret levende post', new_post_path(:type=>"human", :loeb => @loeb.id) %>

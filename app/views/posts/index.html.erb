@@ -7,6 +7,7 @@
     <th>Rigtig svar ans</th>
     <th>Forkert svar</th>
     <th>Try again</th>
+    <th>Placering</th>
     <th>Løb</th>
     <th></th>
     <th></th>
@@ -20,6 +21,7 @@
     <td><%= post.rigtig_svar_ans %></td>
     <td><%= post.forkert_svar %></td>
     <td><%= post.try_again %></td>
+	<td><%= post.placement %></td>
     <td><%= post.loeb.name unless post.loeb.nil? %></td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>

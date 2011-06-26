@@ -16,7 +16,7 @@
 
   <div class="field">
     <%= f.label :løbs_navn %><br />
-    <%= f.select :loeb_id, options_for_select(@loebs, @post.loeb_id) %>
+    <%= f.select :loeb_id, options_for_select(@loebs, @loeb_id) %>
   </div>
   <div class="field">
     <%= f.label :post_navn %><br />
@@ -26,6 +26,7 @@
     <%= f.label :post_beskrivelsen %><br />
 	<%= f.text_area :description %>
   </div>
+<% if @type != "human" %>
   <div class="field">
     <%= f.label :det_rigtige_svar %><br />
     <%= f.text_field :rigtig_svar_ans %>
@@ -41,6 +42,11 @@
   <div class="field">
     <%= f.label :proev_igen_ved_forkert_svar %><br />
     <%= f.check_box :try_again %>
+  </div>
+<% end %>
+  <div class="field">
+    <%= f.label :Placering %><br />
+    <%= f.text_field :placement %>
   </div>
   <div class="actions">
     <%= f.submit %>

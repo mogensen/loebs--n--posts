@@ -41,6 +41,9 @@ class PostsController < ApplicationController
   def new
     @loebs = Loeb.all.map { |loeb| [loeb.name, loeb.id] }
     @post = Post.new
+    @type = "normal"
+    @type = params[:type] if params.has_key? "type"
+    @loeb_id = params[:loeb]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -51,7 +54,9 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    @loeb_id = @post.loeb_id
     @loebs = Loeb.all.map { |loeb| [loeb.name, loeb.id] }
+    @type = @post.post_type
   end
 
   # POST /posts
@@ -74,6 +79,7 @@ class PostsController < ApplicationController
   # PUT /posts/1.xml
   def update
     @post = Post.find(params[:id])
+    @loeb_id = @post.loeb_id
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
