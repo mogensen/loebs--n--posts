@@ -128,12 +128,25 @@ input[type="password"] {
 /* Page layout - common */
 #wrapper {
 	width: 900px;
-	margin: auto;
+	margin: 110px auto;
 	background-color: rgba(255,255,255,.6)!important;
 	background-color: #fff;
 	padding: .1em 1em 1em;
 	.border-radius(.3em);
-	.box-shadow(0, .1em, .2em, rgba(0,0,0,.4));
+	.box-shadow(0, .1em, .3em, rgba(0,0,0,.4));
+	
+	> h1:first-child {
+		color: #fff;
+		margin-top: -100px;
+		white-space: nowrap;
+		font-size: 2.5em;
+
+		img#logo {
+			height: 85px;
+			width: 85px;
+			vertical-align: -30%;
+		}
+	}
 }
 .buttonContainer {
 	display: inline-block;
@@ -183,6 +196,21 @@ section {
 	#wrapper {
 		width: auto;
 		.border-radius(0);
+	}
+}
+@media screen and (max-width: 400px) {
+	#wrapper {
+		margin-top: 95px;
+		
+		> h1:first-child {
+			margin-top: -80px;
+			font-size: 2.2em;
+
+			img#logo {
+				height: 65px;
+				width: 65px;
+			}
+		}
 	}
 }
 /* Page specific */
