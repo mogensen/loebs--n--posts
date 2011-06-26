@@ -4,6 +4,9 @@
 	margin: 0;
 	padding: 0;
 }
+html {
+	height: 100%;
+}
 body {
 	padding: 1em;
 	background-color: #8FAEB8;
@@ -188,6 +191,11 @@ section {
 }
 
 /* Page layout - desktop */
+@media screen and (min-width: 1024px) {
+	body {
+		background-image: url(/images/bg-1.png), url(/images/bg-2.png), url(/images/bg-3.png), -webkit-radial-gradient(circle, rgba(255,255,255,.3), rgba(0,0,0,.3));
+	}
+}
 /* Page layout - mobile */
 @media screen and (max-width: 900px) {
 	body {
