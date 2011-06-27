@@ -15,6 +15,7 @@ Loebnposts::Application.routes.draw do
   match 'posts/:postid/:answer' => 'posts#answer'
 
   match '/about' => 'home#about'
+  match '/loebs/custom_id/:custom_id' => 'loebs#show'
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

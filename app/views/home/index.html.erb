@@ -1,3 +1,5 @@
+<a href="https://github.com/davsebamse/loebs--n--posts"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/abad93f42020b733148435e2cd92ce15c542d320/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub"></a>
+
 <section id="requestPost">
 	<h2>Indtast post ID</h2>
 	<form>
@@ -7,35 +9,6 @@
 	</form>
 </section>
 
-<% if params.has_key? "admin" %>
-	<section id="createPost">
-		<h2>Lav nyt</h2>
-		<p class="buttonContainer">
-			<%= link_to "Nyt løb", new_loeb_path, :class=> 'button' %>
-			<%= link_to "Ny post", new_post_path, :class=> 'button' %>
-			<%= link_to "Alle løb", loebs_path, :class=> 'button' %>
-		</p>
-	</section>
-	<section id="guide">
-		<h3>Sådan gør du</h3>
-		<p>
-		Du kan indtaste et løb, som består af en overskrift. Efterfølgende kan posterne oprettes.
-		</p>	<p>
-		Hver post består af tre tekster. En tekst der bliver vist til brugeren som indeholder selve beskrivelsen af posten, samt to andre tekster. En tekst der bliver vist ved korrekt svar, og en der bliver vist ved forkert svar. 
-			</p><p>	
-		Hver post vil få et ID, som så skal indtastes på forsiden. Når ID'et bliver indtastet bliver post beskrivelsen hentet frem. Her kan brugeren så give sit svar, som så enten resultere i at teksten hvis det rigtige svar bliver indtastet bliver vist, eller teksten ved det forkerte svar. Samt, hvis der er givet mulighed for det, et link til "Prøv igen" hvis brugeren svarede forkert. Ellers er der et link som går tilbage til forsiden.
-		</p>	
-		<p>
-			Post ID'er eller urler kan evt. laves med <a href="http://qrcode.kaywa.com/">http://qrcode.kaywa.com/</a>
-		</p>
-		<p>
-			<strong>Pris:</strong> Systemet er gratis at bruge, men koster desværre lidt i data-overførsler hvis du ikke har et flatrate-abonnemement. Har man et typisk dyrt teleselskab, vil det koste 1,50 - 2,00 kroner at gå ind på siden første gang og 2-3 øre pr sidevisning herefter.
-		</p>
-		<p>
-			Spørgsmål, forslag eller ligenende: Kontakt David på <%= mail_to 'david@scoutrace.dk', 'david@scoutrace.dk', :class => "email"%>.
-		</p>
-	</section>
-<%else%>
 	<section id="guide">
 		<h3>Sådan gør du</h3>
 		<ol>
@@ -48,4 +21,24 @@
 			Spørgsmål, forslag eller ligenende: Kontakt David på <%= mail_to 'david@scoutrace.dk', 'david@scoutrace.dk', :class => "email"%>.
 		</p>
 	</section>
-<%end%>
+
+<section>
+	<h2>Gå til løb</h2>
+	<form>
+		<p class="buttonContainer">
+			<input type=text name='custom_loeb_id' id='custom_loeb_id' class="postIdInput"><button id='goto_loeb'>Hent loeb</button>
+		</p>
+	</form>
+	<%= link_to "Nyt løb", new_loeb_path, :class=> 'button' %>
+<section>
+
+	<section id="guide">
+		<h3>Sådan gør du for at oprette et løb</h3>
+		<ol>
+			<li>Tryk opret løb og du er igang.</li>
+			<li>Hvis du har et løbs id, indtast det og du kan gå igang.</li>
+		</ol>
+		<p>
+			Spørgsmål, forslag eller ligenende: Kontakt David på <%= mail_to 'david@scoutrace.dk', 'david@scoutrace.dk', :class => "email"%>.
+		</p>
+	</section>

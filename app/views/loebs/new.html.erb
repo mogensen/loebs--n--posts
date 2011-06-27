@@ -1,5 +1,19 @@
 <h1>Nyt løb</h1>
-
+<section id="guide">
+	<h3>Sådan gør du</h3>
+	<p>
+		<ol>
+			<li>Indtast navn. Det kan være et navn som "Lergraven rundt 2011" eller "Piratløb"</li>
+			<li>Indtast den kontakt som kommer på posterne når de bliver printet. Det kunne være "David, FDF Karlebo"</li>
+			<li>Indtast et custom løbs id, som kan gives til andre som skal lave poster, eller ændre i løbet.</li>
+			<li>Indtast hvornår posterne bliver hængt op</li>
+			<li>Indtast hvornår posterne bliver taget ned</li>
+		</ol>
+	</p>
+	<p>
+		Spørgsmål, forslag eller ligenende: Kontakt David på <%= mail_to 'david@scoutrace.dk', 'david@scoutrace.dk', :class => "email"%>.
+	</p>
+</section>
 <%= render 'form' %>
 
 <%= link_to '« Tilbage', loebs_path, :class => 'button' %>

@@ -20,6 +20,10 @@
     <%= f.text_field :contact %>
   </div>
   <div class="field">
+    <%= f.label :custom_løbs_navn %>
+    <%= f.text_field :custom_id %>
+  </div>
+  <div class="field">
     <%= f.label :start %>
     <%= f.datetime_select :start %>
   </div>
@@ -28,6 +32,6 @@
     <%= f.datetime_select :slut %>
   </div>
   <div class="actions buttonContainer">
-    <%= f.submit %>
+    <%= f.submit 'Opret løb' %>
   </div>
 <% end %>

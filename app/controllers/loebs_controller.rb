@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 class LoebsController < ApplicationController
   # GET /loebs
   # GET /loebs.xml
@@ -13,13 +15,18 @@ class LoebsController < ApplicationController
   # GET /loebs/1
   # GET /loebs/1.xml
   def show
-    @loeb = Loeb.find(params[:id])
+    @loeb = Loeb.find(params[:id]) if params.has_key? :id
+    @loeb = Loeb.where(:custom_id => params['custom_id']).first if params.has_key? 'custom_id'
     
-    do_layout = params.has_key? "print"
+    if @loeb.nil?
+        redirect_to '/'
+    else
+        do_layout = params.has_key? "print"
     
-    respond_to do |format|
-      format.html { render :html => @loeb, :layout => (not do_layout)}# show.html.erb
-      format.xml  { render :xml => @loeb }
+        respond_to do |format|
+            format.html { render :html => @loeb, :layout => (not do_layout)}# show.html.erb
+            format.xml  { render :xml => @loeb }
+        end
     end
   end
 
@@ -42,11 +49,12 @@ class LoebsController < ApplicationController
   # POST /loebs
   # POST /loebs.xml
   def create
+    params[:loeb][:custom_id].gsub! ' ',''
     @loeb = Loeb.new(params[:loeb])
 
     respond_to do |format|
       if @loeb.save
-        format.html { redirect_to(@loeb, :notice => 'Loeb was successfully created.') }
+        format.html { redirect_to(@loeb, :notice => 'Løbet er blevet oprettet.') }
         format.xml  { render :xml => @loeb, :status => :created, :location => @loeb }
       else
         format.html { render :action => "new" }
@@ -58,11 +66,12 @@ class LoebsController < ApplicationController
   # PUT /loebs/1
   # PUT /loebs/1.xml
   def update
+      params[:loeb][:custom_id].gsub! ' ',''
     @loeb = Loeb.find(params[:id])
 
     respond_to do |format|
       if @loeb.update_attributes(params[:loeb])
-        format.html { redirect_to(@loeb, :notice => 'Loeb was successfully updated.') }
+        format.html { redirect_to(@loeb, :notice => 'Løbet er blevet opdateret.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

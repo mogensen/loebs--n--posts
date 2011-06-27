@@ -21,10 +21,9 @@ require 'date'
 <% else %>
 <p>
   <b>Name:</b>
-  <%= @loeb.name %>
+  <%= @loeb.name %> (<%= @loeb.custom_id%>)
 </p>
-<%= link_to 'Ændre løbs navn', edit_loeb_path(@loeb) %> |
-<%= link_to 'Til alle løb', loebs_path %>
+<%= link_to 'Ændre løbs navn', edit_loeb_path(@loeb) %> 
 <p>
 </p>
 <table>
@@ -37,7 +36,10 @@ require 'date'
 <% if @loeb.posts.empty? %>
 <h3>Kom godt igang</h3>
 <p>
-	Du har nu oprettet et løb, men manger at oprette nogle poster. På de to links nenden for kan du oprette poster. De levende poster indeholder ingen spørgsmål og svar, men blot en tekst. Det kan du bruge hvis holdet bare skal sendes videre eller det er en levende post. Det andet link giver at delterne skal svare rigtigt på et spørgsmål for at komme videre.
+	Du har nu oprettet et løb, men manger at oprette nogle poster.<br/> På de to links nenden for kan du oprette poster. <br/>De levende poster indeholder ingen spørgsmål og svar, men blot en tekst. Det kan du bruge hvis holdet bare skal sendes videre eller det er en levende post. <br/>Det andet link giber mulighed for at lave en post hvor deltagerne skal svare rigtigt på et spørgsmål for at komme videre.
+</p>
+<p>
+	Efter dit løbsnavn står der et id. Det id skal du give til andre der også gerne må lave poster til løbet. Løbets id er: "<%= @loeb.custom_id %>".
 </p>
 <% else %>
 <% @loeb.posts.each do |p| %>

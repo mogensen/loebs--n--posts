@@ -15,8 +15,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :løbs_navn %><br />
-    <%= f.select :loeb_id, options_for_select(@loebs, @loeb_id) %>
+    <%= f.hidden_field :loeb_id, :value => @loeb_id %>
   </div>
   <div class="field">
     <%= f.label :post_navn %><br />
