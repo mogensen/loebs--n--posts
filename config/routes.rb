@@ -14,6 +14,8 @@ Loebnposts::Application.routes.draw do
 
   match 'posts/:postid/:answer' => 'posts#answer'
 
+  match '/about' => 'home#about'
+
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)

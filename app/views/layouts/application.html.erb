@@ -19,6 +19,8 @@
 	<%= javascript_include_tag :defaults %>
 	<%= javascript_include_tag "jquery.min.js" %>
 	<%= csrf_meta_tag %>
+	
+	<%= favicon_link_tag 'favicon.ico' %>
 
 	<!-- less style  - should only be used in development, not in production -->
 	<!-- compile style.less, overwrite style.css and comment out the two files below -->
@@ -27,12 +29,14 @@
 </head>
 <body>
 	<article id="wrapper">
-		<h1 class="frontpage"><img src="/images/logo.png" alt="" id="logo" /> Scout Race</h1>
+		<h1 class="frontpage"><a href="/"><%= image_tag("logo.png", :alt => "Logo", :id => "logo") %> Scout Race</a></h1>
 		<%= yield %>
 		<section id="footer">
 			<nav class="buttonContainer">
 				<%= link_to '« Til forsiden', '/', :class=> 'button' %>
 			</nav>
+			<%= mail_to 'kontakt@scoutrace.dk', 'Kontakt os', :class => "email"%>
+			<%= link_to 'Om os', '/about'%>
 		</section>
 	</article>
 </body>
