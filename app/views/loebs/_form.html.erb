@@ -1,7 +1,7 @@
 <%= form_for(@loeb) do |f| %>
   <% if @loeb.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@loeb.errors.count, "error") %> prohibited this loeb from being saved:</h2>
+      <h2><%= @loeb.errors.count%> fejl gjorde at løbet ikke kunne oprettes:</h2>
 
       <ul>
       <% @loeb.errors.full_messages.each do |msg| %>
