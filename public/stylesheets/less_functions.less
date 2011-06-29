@@ -22,3 +22,11 @@
 	opacity: @a;
 	filter: e(%("alpha(opacity=%d)", @a*100));
 }
+.clearfix() {
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+		height: 0;
+	}
+}
