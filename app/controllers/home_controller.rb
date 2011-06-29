@@ -7,6 +7,8 @@ class HomeController < ApplicationController
   	    redirect_to '/loebs/custom_id/'+params['custom_loeb_id']
   	    return
   	end
+  	
+  	@loebs = Loeb.all(:conditions => [" start >= '#{Time.now}'"],:order => :start, :limit => 10)
   end
 
   def about
