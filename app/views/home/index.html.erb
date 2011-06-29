@@ -24,41 +24,52 @@
 
 <div class="floatRight">
 	<section>
-	<% if not @loebs.empty? %>
-		<h2>De <%= @loebs.count %> aktuelle løb</h2>
-		<ul>
-			<% @loebs.each do |l| %>
-				<li><%= l.name %></li>
-			<% end %>
-		</ul>
-	<% else %>
-		<h2>Lav et løb</h2>
-		<p>Der er ingen aktuelle løb, men du skal være velkommen til at lave det næste!</p>
-	<% end %>
+		<% if not @loebs.empty? %>
+			<h2>De <%= @loebs.count %> aktuelle løb</h2>
+			<ul class="loebsList">
+				<% @loebs.each do |l| %>
+					<li id="loeb_<%= l.id %>">
+						<form>
+							<strong class="title"><%= l.name %></strong>
+							<span class="actions">
+								<span class="edit">
+									Kode:
+									<input type="password" />
+									<input type="submit" value="ok"/>
+								</span>
+								<a href="javascript:editLoeb(<%= l.id %>)" class="edit">Redigér</a>
+							</span>
+						</form>
+					</li>
+				<% end %>
+			</ul>
+		<% else %>
+			<h2>Lav et løb</h2>
+			<p>Der er ingen aktuelle løb, men du skal være velkommen til at lave det næste!</p>
+		<% end %>
 
-	<p><%= link_to "Nyt løb", new_loeb_path, :class=> 'button' %></p>
-</section>
+		<p><%= link_to "Nyt løb", new_loeb_path, :class=> 'button' %></p>
 
-	<section>
-		<h2>Gå til løb</h2>
+		<!--h3>Gå til løb</h3>
 		<form>
 			<p class="buttonContainer">
 				<input type=text name='custom_loeb_id' id='custom_loeb_id' class="postIdInput"><button id='goto_loeb'>Hent løb</button>
 			</p>
-		</form>
-	<section>
-
-	<section class="guide">
-		<h3>Sådan gør du for at oprette et løb</h3>
-		<ol>
-			<li>Tryk Nyt løb og du er igang.</li>
-			<li>Hvis du har et løbs id, kan du indtaste det og du kan gå igang.</li>
-		</ol>
-		<p>
-			Spørgsmål, forslag eller ligenende: Kontakt David på <%= mail_to 'david@scoutrace.dk', 'david@scoutrace.dk', :class => "email"%>.
-		</p>
+		</form-->
+		<section class="guide">
+			<h3>Sådan gør du</h3>
+			<ol>
+				<li>Tryk Nyt løb og du er igang.</li>
+				<li>Hvis du vil redigere et løb, så tryk &ldquo;redigér&rdquo; og indtast løbets kode.</li>
+			</ol>
+		</section>
 	</section>
-	
 </div>
 
 <a href="https://github.com/davsebamse/loebs--n--posts" id="gitLink"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/abad93f42020b733148435e2cd92ce15c542d320/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub"></a>
+
+<script type="text/javascript">
+	function editLoeb(id) {
+		$('#loeb_'+id).addClass('edit').find('input[type="password"]').focus();
+	}
+</script>

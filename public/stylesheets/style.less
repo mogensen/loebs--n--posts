@@ -5,7 +5,6 @@ html {
 	height: 100%;
 }
 body {
-	padding: 1em;
 	background-color: #8FAEB8;
 	background-image: url(/images/bg-1.png), url(/images/bg-2.png), url(/images/bg-3.png);
 }
@@ -140,18 +139,11 @@ input[type="password"] {
 
 /* Page layout - common */
 #wrapper {
-	position: relative;
 	width: 900px;
-	margin: 110px auto;
-	background-color: rgba(255,255,255,.6)!important;
-	background-color: #fff;
-	padding: .1em 1em 1em;
-	.border-radius(.3em);
-	.box-shadow(0, .1em, .3em, rgba(0,0,0,.4));
+	margin: 0 auto;
 	
 	> h1:first-child {
 		color: #fff;
-		margin-top: -100px;
 		white-space: nowrap;
 		font-size: 2.5em;
 		height: 2.4em;
@@ -167,13 +159,32 @@ input[type="password"] {
 			vertical-align: -30%;
 		}
 	}
+	#content {
+		position: relative;
+		background-color: rgba(255,255,255,.6)!important;
+		background-color: #fff;
+		padding: .1em 1em 1em;
+		.border-radius(.3em);
+		.box-shadow(0, .1em, .3em, rgba(0,0,0,.4));
+		.clearfix();
+	}
 	#footer {
 		clear: both;
-		padding-top: 1em;
+		padding: .5em 0;
 		font-size: .7em;
+		
+		nav, p {
+			display: inline-block;
+		}
+		nav {
+			margin-right: 1em;
+		}
 
 		a.button {
 			line-height: 1.5em;
+		}
+		a:not(.button) {
+			color: #efefff;
 		}
 	}
 }
@@ -200,6 +211,63 @@ section {
 		padding-right: 1em;
 	}
 */}
+ul.loebsList {
+	list-style: none;
+	padding-left: .5em;
+
+	li {
+		margin-bottom: .7em;
+		
+		.title, .actions {
+			display: block;
+		}
+		.title {
+			font-size: 1.1em;
+			
+		}
+		.actions {
+			line-height: 1.2em;
+			font-size: .8em;
+			
+			a.edit {
+				display: inline-block;
+				overflow: hidden;
+				white-space: nowrap;
+				max-width: 100px;
+				.transition(max-width, 1s);
+			}
+			span.edit {
+				display: inline-block;
+				width: 0;
+				white-space: nowrap;
+				overflow: hidden;
+				.opacity(0);
+				.transition(opacity, 1s);
+				
+				input {
+					vertical-align: middle;
+					line-height: 1.2em;
+					
+					&[type="password"] {
+						width: 80px;
+					}
+				}
+			}
+		}
+		&.edit {
+			.actions {
+				a.edit {
+					max-width: 0;
+					.opacity(0);
+				}
+				span.edit {
+					width: 200px;
+					.opacity(1);
+				}
+			}
+		}
+	}
+}
 .guide {
 	clear: both;
 	background: rgba(150,255,150,.2);
@@ -224,10 +292,18 @@ section {
 	}
 	#wrapper {
 		width: auto;
-		.border-radius(0);
+		
+		#content {
+			.border-radius(0);
+		}
 	}
 }
 @media screen and (max-width: 400px) {
+	.floatLeft, .floatRight {
+		float: none;
+		margin: none;
+		width: auto;
+	}
 	#wrapper {
 		margin-top: 95px;
 		
@@ -239,6 +315,10 @@ section {
 				height: 65px;
 				width: 65px;
 			}
+		}
+		
+		#content {
+			.box-shadow(0,0,0,#000);
 		}
 	}
 }

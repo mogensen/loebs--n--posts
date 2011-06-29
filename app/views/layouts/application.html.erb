@@ -44,13 +44,18 @@
 <body>
 	<article id="wrapper">
 		<h1 class="frontpage"><a href="/"><%= image_tag("logo.png", :alt => "Logo", :id => "logo") %> Scout Race</a></h1>
-		<%= yield %>
+		<article id="content">
+			<%= yield %>
+		</article>
 		<section id="footer">
 			<nav class="buttonContainer">
 				<%= link_to '« Til forsiden', '/', :class=> 'button' %>
+				<%= mail_to 'kontakt@scoutrace.dk', 'Kontakt os', :class => "email"%>
+				<%= link_to 'Om os', '/about'%>
 			</nav>
-			<%= mail_to 'kontakt@scoutrace.dk', 'Kontakt os', :class => "email"%>
-			<%= link_to 'Om os', '/about'%>
+			<p>
+				Spørgsmål, forslag eller ligenende: Kontakt David på <%= mail_to 'david@scoutrace.dk', 'david@scoutrace.dk', :class => "email"%>.
+			</p>
 		</section>
 	</article>
 	
