@@ -8,7 +8,7 @@ class HomeController < ApplicationController
   	    return
   	end
   	
-  	@loebs = Loeb.all(:conditions => [" start >= '#{Time.now}'"],:order => :start, :limit => 10)
+  	@loebs = Loeb.all(:conditions => [" slut >= '#{Time.now}'"],:order => :start, :limit => 10)
   end
 
   def about
