@@ -1,9 +1,6 @@
 @import "less_functions.less";
+@import "basics.less";
 
-* {
-	margin: 0;
-	padding: 0;
-}
 html {
 	height: 100%;
 }
@@ -11,10 +8,6 @@ body {
 	padding: 1em;
 	background-color: #8FAEB8;
 	background-image: url(/images/bg-1.png), url(/images/bg-2.png), url(/images/bg-3.png);
-	font-size: 1em;
-	font-family: Copse, helvetica, sans-serif;
-	letter-spacing: .07em;
-	line-height: 1.5em;
 }
 article, section {
 	display: block;
@@ -143,6 +136,11 @@ input[type="password"] {
 		margin-top: -100px;
 		white-space: nowrap;
 		font-size: 2.5em;
+		
+		a {
+			text-decoration: none;
+			color: #fff;
+		}
 
 		img#logo {
 			height: 85px;
@@ -200,6 +198,9 @@ section {
 @media screen and (max-width: 900px) {
 	body {
 		padding: 0;
+	}
+	#gitLink {
+		display: none;
 	}
 	#wrapper {
 		width: auto;

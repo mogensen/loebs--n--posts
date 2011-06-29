@@ -1,0 +1,8 @@
+*{margin:0;padding:0;}
+body{font-size:1em;font-family:Copse,helvetica,sans-serif;letter-spacing:.07em;line-height:1.5em;}
+section.post{padding-bottom:.5em;border-top:1px dashed #000;}section.post:first-child{border-top:none;}
+section.post h1{margin:.5em 0 .2em;}
+section.post p.contact,section.post p.duration{color:#aaa;font-size:.7em;margin:0;line-height:1em;padding:0;}
+section.post p.duration{margin-top:.5em;font-size:.5em;}
+section.post p.postID{margin-left:.7em;}
+section.post img{margin:1em 1em 0;}

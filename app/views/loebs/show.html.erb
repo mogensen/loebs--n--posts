@@ -4,21 +4,35 @@ require 'date'
 
 %>
 
-<p id="notice"><%= notice %></p>
 <% if params.has_key? "print" %>
-<table width="100%">
-<% @loeb.posts.each do |p| %>
-	<tr>
-		<td>Løbet <%=@loeb.name%> er udlagt af <%= @loeb.contact%>. Det strækker sig fra <%= @loeb.start.strftime("%d/%m/%Y kl. %H:%M") rescue "" %> til <%=@loeb.slut.strftime("%d/%m/%Y kl. %H:%M") rescue ""%></td>
-	</tr>
-  <tr>
-    <td><img src="http://qrcode.kaywa.com/img.php?s=2&d=http%3A%2F%2Floebsnposts.heroku.com%2Fposts%2F<%= p.id %>"/></td>
-    <td>Post ID: <%= p.id %></td>
-  </tr>
-	<tr><td style="border-top:solid 2px" colspan=2>&nbsp;</td></tr>
-<% end %>
-</table>
+<!DOCTYPE html>
+<html lang="da">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Scout Race</title>
+		<!-- style -->
+		<%= stylesheet_link_tag "print.css" %>
+
+		<!-- fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Copse' rel='stylesheet' type='text/css' />
+	</head>
+	<body>
+		<% @loeb.posts.each do |p| %>
+		<section class="post">
+			<h1><%=@loeb.name%></h1>
+			<p class="contact">Udlagt af <%= @loeb.contact%>.</p>
+			<p class="duration">
+				Løbet strækker sig fra <strong><%= @loeb.start.strftime("%d/%m/%Y kl. %H:%M") rescue "" %></strong> til <strong><%=@loeb.slut.strftime("%d/%m/%Y kl. %H:%M") rescue ""%></strong>
+			</p>
+		    <img src="http://qrcode.kaywa.com/img.php?s=2&d=http%3A%2F%2Floebsnposts.heroku.com%2Fposts%2F<%= p.id %>"/>
+		    <p class="postID">Post ID: <%= p.id %></p>
+		</section>
+		<% end %>
+		<p id="notice"><%= notice %></p>
+	</body>
+</html>
 <% else %>
+<p id="notice"><%= notice %></p>
 <p>
   <b>Name:</b>
   <%= @loeb.name %> (<%= @loeb.custom_id%>)
