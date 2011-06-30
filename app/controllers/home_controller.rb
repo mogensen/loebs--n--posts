@@ -8,8 +8,7 @@ class HomeController < ApplicationController
   	    return
   	end
   	
-  	@loebs = Loeb.paginate :page => params[:page], :conditions => [" slut >= '#{Time.now}'"], :order => :start
-  	#@loebs = Loeb.all(:conditions => [" slut >= '#{Time.now}'"],:order => :start, :limit => 10)
+  	@loebs = Loeb.where("slut >= '#{Time.now}'").paginate( :page => params[:page], :per_page => 5, :order => :start)
   end
 
   def about

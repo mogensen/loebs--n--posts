@@ -40,7 +40,7 @@
 					</li>
 				<% end %>
 			</ul>
-			<%= will_paginate @loebs, :next_label => "Nyere »", :prev_label => "« Ældre", :class => "buttonContainer" %>
+			<%= will_paginate @loebs, :next_label => "Nyere »", :previous_label => "« Ældre", :class => "buttonContainer", :add_next_class => ['button', 'small'], :add_prev_class => ['button', 'small'] %>
 			
 		<% else %>
 			<h2>Lav et løb</h2>
