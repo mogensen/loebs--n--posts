@@ -21,7 +21,7 @@ class PostsController < ApplicationController
           @post = Post.find(params[:id])
           respond_to do |format|
               format.html # show.html.erb
-              format.xml  { render :xml => @post }
+              format.xml  { render :html => @post }
           end
       rescue 
           render 'public/404', :status => 404, :layout => false
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
     
     respond_to do |format|
       format.html # answer.html.erb
-      format.xml  { render :xml => @post }
+      format.xml  { render :html => @post }
     end
   end
 
@@ -49,7 +49,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @post }
+      format.xml  { render :html => @post }
     end
   end
 
@@ -69,10 +69,10 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         format.html { redirect_to(@post, :notice => 'Posten blev oprettet.') }
-        format.xml  { render :xml => @post, :status => :created, :location => @post }
+        #format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
+        format.xml  { render :html => @post }
       end
     end
   end
@@ -89,7 +89,7 @@ class PostsController < ApplicationController
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
+        format.xml  { render :html => @post }
       end
     end
   end
