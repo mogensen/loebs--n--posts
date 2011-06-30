@@ -8,3 +8,37 @@ body {
 	letter-spacing: .07em;
 	line-height: 1.5em;
 }
+.small, .button.small {
+	font-size: .7em;
+}
+table.pretty {
+	border-collapse: collapse;
+	line-height: 1.2em;
+	
+	tr:nth-of-type(even) {
+		.border-radius(1em);
+		//border: 1px solid #000;
+		td {
+			background-color: rgba(0,0,0,.1);
+			
+			&:first-child {
+				.border-top-left-radius(.3em);
+				.border-bottom-left-radius(.3em);
+			}
+			&:last-child {
+				.border-top-right-radius(.3em);
+				.border-bottom-right-radius(.3em);
+			}
+		}
+	}
+	th, td {
+		text-align: left;
+		padding: 1px .5em;
+		
+		.button {
+			&.small {
+				margin-top: .8em;
+			}
+		}
+	}
+}

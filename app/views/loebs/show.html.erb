@@ -5,69 +5,69 @@ require 'date'
 %>
 
 <% if params.has_key? "print" %>
-<!DOCTYPE html>
-<html lang="da">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Scout Race</title>
-		<!-- style -->
-		<%= stylesheet_link_tag "print.css", :media => "all" %>
+	<!DOCTYPE html>
+	<html lang="da">
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<title>Scout Race</title>
+			<!-- style -->
+			<%= stylesheet_link_tag "print.css", :media => "all" %>
 
-		<!-- fonts -->
-		<link href='http://fonts.googleapis.com/css?family=Copse' rel='stylesheet' type='text/css' />
-	</head>
-	<body>
+			<!-- fonts -->
+			<link href='http://fonts.googleapis.com/css?family=Copse' rel='stylesheet' type='text/css' />
+		</head>
+		<body>
+			<% @loeb.posts.each do |p| %>
+			<section class="post">
+				<h1><%=@loeb.name%></h1>
+				<p class="contact">Udlagt af <%= @loeb.contact%>.</p>
+				<p class="duration">
+					Løbet strækker sig fra <strong><%= @loeb.start.strftime("%d/%m/%Y kl. %H:%M") rescue "" %></strong> til <strong><%=@loeb.slut.strftime("%d/%m/%Y kl. %H:%M") rescue ""%></strong>
+				</p>
+			    <img src="http://qrcode.kaywa.com/img.php?s=3&d=http%3A%2F%2Fscoutrace.dk%2Fposts%2F<%= p.id %>"/>
+			    <p class="postID">Post ID: <%= p.id %></p>
+			</section>
+			<% end %>
+			<p id="notice"><%= notice %></p>
+		</body>
+	</html>
+<% else %>
+	<p id="notice"><%= notice %></p>
+	<h1><%= @loeb.name %></h1>
+	<p class="buttonContainer">
+		<%= link_to 'Skift navn', edit_loeb_path(@loeb), :class => 'button' %> 
+		<%= link_to 'Print poster', loeb_path(@loeb, :print=>true), :class => 'button' %>
+	</p>
+	<% if @loeb.posts.empty? %>
+	<h3>Kom godt igang</h3>
+	<p>
+		Du har nu oprettet et løb, men manger at oprette nogle poster.<br/> På de to links nenden for kan du oprette poster. <br/>De levende poster indeholder ingen spørgsmål og svar, men blot en tekst. Det kan du bruge hvis holdet bare skal sendes videre eller det er en levende post. <br/>Det andet link giber mulighed for at lave en post hvor deltagerne skal svare rigtigt på et spørgsmål for at komme videre.
+	</p>
+	<p>
+		Efter dit løbsnavn står der et id. Det id skal du give til andre der også gerne må lave poster til løbet. Løbets id er: "<%= @loeb.custom_id %>".
+	</p>
+	<% else %>
+		<h2>Poster</h2>
+		<table class="pretty">
+		  <tr>
+		    <th>Post-id</th>
+		    <th>Navn</th>
+		    <th>Placering</th>
+		  </tr>
 		<% @loeb.posts.each do |p| %>
-		<section class="post">
-			<h1><%=@loeb.name%></h1>
-			<p class="contact">Udlagt af <%= @loeb.contact%>.</p>
-			<p class="duration">
-				Løbet strækker sig fra <strong><%= @loeb.start.strftime("%d/%m/%Y kl. %H:%M") rescue "" %></strong> til <strong><%=@loeb.slut.strftime("%d/%m/%Y kl. %H:%M") rescue ""%></strong>
-			</p>
-		    <img src="http://qrcode.kaywa.com/img.php?s=3&d=http%3A%2F%2Fscoutrace.dk%2Fposts%2F<%= p.id %>"/>
-		    <p class="postID">Post ID: <%= p.id %></p>
-		</section>
+		  <tr>
+		    <td><%= p.id %></td>
+		    <td><%= p.name %></td>
+		    <td><%= p.placement %></td>
+			<td><%= button_to 'Opdater post', edit_post_path(p), :method => :get, :class => 'small' %></td>
+			<td><%= button_to('Slet post', post_path(p), :confirm => 'Er du sikker?', :method => :delete), :class => 'small' %></td>
+		  </tr>
 		<% end %>
-		<p id="notice"><%= notice %></p>
-	</body>
-</html>
-<% else %>
-<p id="notice"><%= notice %></p>
-<p>
-  <b>Name:</b>
-  <%= @loeb.name %> (<%= @loeb.custom_id%>)
-</p>
-<%= link_to 'Ændre løbs navn', edit_loeb_path(@loeb) %> 
-    <%= link_to 'Print poster', loeb_path(@loeb, :print=>true) %>
-<p>
-</p>
-<table>
-  <tr>
-    <th>Post id (det brugeren skal taste)</th>
-    <th>Post navn</th>
-    <th>Post placering</th>
-  </tr>
-
-<% if @loeb.posts.empty? %>
-<h3>Kom godt igang</h3>
-<p>
-	Du har nu oprettet et løb, men manger at oprette nogle poster.<br/> På de to links nenden for kan du oprette poster. <br/>De levende poster indeholder ingen spørgsmål og svar, men blot en tekst. Det kan du bruge hvis holdet bare skal sendes videre eller det er en levende post. <br/>Det andet link giber mulighed for at lave en post hvor deltagerne skal svare rigtigt på et spørgsmål for at komme videre.
-</p>
-<p>
-	Efter dit løbsnavn står der et id. Det id skal du give til andre der også gerne må lave poster til løbet. Løbets id er: "<%= @loeb.custom_id %>".
-</p>
-<% else %>
-<% @loeb.posts.each do |p| %>
-  <tr>
-    <td><%= p.id %></td>
-    <td><%= p.name %></td>
-    <td><%= p.placement %></td>
-	<td><%= button_to 'Opdater post', edit_post_path(p), :method => :get %></p>
-	<td><%= button_to('Slet post', post_path(p), :confirm => 'Er du sikker?', :method => :delete) %></p>
-  </tr>
-<% end %>
-</table>
-<% end %>
-<%= link_to 'Opret spørgsmåls post', new_post_path(:type=>"normal", :loeb => @loeb.id), :method => :get %>
-<%= link_to 'Opret levende post', new_post_path(:type=>"human", :loeb => @loeb.id), :method => :get %>
+		</table>
+	<% end %>
+	<h3>Opret post</h3>
+	<p class="buttonContainer">
+		<%= link_to 'Spørgsmål', new_post_path(:type=>"normal", :loeb => @loeb.id), :class => 'button' %>
+		<%= link_to 'Levende post', new_post_path(:type=>"human", :loeb => @loeb.id), :class => 'button' %>
+	</p>
 <% end %>
