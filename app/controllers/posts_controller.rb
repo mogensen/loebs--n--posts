@@ -76,10 +76,12 @@ class PostsController < ApplicationController
   # POST /posts.xml
   def create
     @post = Post.new(params[:post])
-
+    @loeb_id = @post.loeb_id
+    @loeb = Loeb.find(@loeb_id)
+    
     respond_to do |format|
       if @post.save
-        format.html { redirect_to(@post, :notice => 'Posten blev oprettet.') }
+        format.html { redirect_to(@loeb, :notice => 'Posten blev oprettet.') }
         #format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
         format.html { render :action => "new" }
@@ -93,10 +95,11 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @loeb_id = @post.loeb_id
+    @loeb = Loeb.find(@loeb_id)
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        format.html { redirect_to(@post, :notice => 'Posten blev opdateret.') }
+        format.html { redirect_to(@loeb, :notice => 'Posten blev opdateret.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -109,15 +112,17 @@ class PostsController < ApplicationController
   # DELETE /posts/1.xml
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
+    @loeb_id = @post.loeb_id
+    @loeb = Loeb.find(@loeb_id)
     if session[:loebs_id].to_i != @post.loeb_id.to_i   
         session[:loebs_id] = nil    
         redirect_to '/', :notice => "Du har ikke adgang her."
         return
     end
+    @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to(posts_url) }
+      format.html { redirect_to(@loeb, :notice => 'Posten blev slettet') }
       format.xml  { head :ok }
     end
   end
