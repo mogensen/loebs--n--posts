@@ -50,6 +50,11 @@ class LoebsController < ApplicationController
   # GET /loebs/1/edit
   def edit
     @loeb = Loeb.find(params[:id])
+    if session[:loebs_id].to_i != @loeb.id.to_i   
+        session[:loebs_id] = nil    
+        redirect_to '/', :notice => "Du har ikke adgang her."
+        return
+    end
   end
 
   # POST /loebs
