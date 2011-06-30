@@ -35,7 +35,7 @@ require 'date'
 	<p id="notice"><%= notice %></p>
 	<h1><%= @loeb.name %></h1>
 	<p class="buttonContainer">
-		<%= link_to 'Skift navn', edit_loeb_path(@loeb), :class => 'button' %> 
+		<%= link_to 'Ændre løb', edit_loeb_path(@loeb), :class => 'button' %> 
 		<%= link_to 'Print poster', loeb_path(@loeb, :print=>true), :class => 'button' %>
 	</p>
 	<% if @loeb.posts.empty? %>
@@ -60,7 +60,7 @@ require 'date'
 		    <td><%= p.name %></td>
 		    <td><%= p.placement %></td>
 			<td><%= button_to 'Opdater post', edit_post_path(p), :method => :get, :class => 'small' %></td>
-			<td><%= button_to('Slet post', post_path(p), :confirm => 'Er du sikker?', :method => :delete), :class => 'small' %></td>
+			<td><%= button_to('Slet post', post_path(p), :confirm => 'Er du sikker?', :method => :delete, :class => 'small') %></td>
 		  </tr>
 		<% end %>
 		</table>

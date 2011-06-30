@@ -23,7 +23,7 @@ class LoebsController < ApplicationController
     @loeb = Loeb.find(params[:id]) if params.has_key? :id
     if params.has_key? 'custom_id'
         @loeb = Loeb.where(:custom_id => params['custom_id']).first 
-        redirect_to loeb_path @loeb
+        redirect_to loeb_path @loeb rescue redirect_to '/', :notice => "Løbet blev ikke fundet"
         return
     end
     if @loeb.nil?
