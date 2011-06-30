@@ -112,7 +112,8 @@ input[type="submit"] {
 input[type="text"],
 input[type="number"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+div.nicEdit-main {
 	color: #000;
 	background: rgba(255,255,255, .5);
 	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.4);
@@ -136,7 +137,21 @@ input[type="password"] {
 		.border-radius(0);
 	}
 }
-
+div.nicEdit-panelContain {
+	.border-top-left-radius(.3em);
+	.border-top-right-radius(.3em);
+}
+div.nicEdit-panel {
+	line-height: 1.2em;
+}
+div.nicEdit-main {
+	margin: 0!important;
+	width: 297px!important;
+	.border-top-left-radius(0);
+	.border-top-right-radius(0);
+	.border-bottom-left-radius(.3em);
+	.border-bottom-right-radius(.3em);
+}
 /* Page layout - common */
 #wrapper {
 	width: 900px;
@@ -200,17 +215,6 @@ input[type="password"] {
 	}
 }
 // Frontpage
-section {
-/*	&#requestPost,
-	&#createPost {
-		float: left;
-		width: 20em;
-	}
-	&#requestPost {
-		margin-right: 1em;
-		padding-right: 1em;
-	}
-*/}
 ul.loebsList {
 	list-style: none;
 	padding-left: .5em;
@@ -274,6 +278,19 @@ ul.loebsList {
 	.border-radius(.3em);
 	padding: .4em 1em .6em;
 	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.4);
+}
+form {
+	div.field {
+		margin: .7em 0;
+		
+		label {
+			display: block;
+		}
+		
+		> div {
+			border: 0!important;
+		}
+	}
 }
 
 /* Page layout - desktop */

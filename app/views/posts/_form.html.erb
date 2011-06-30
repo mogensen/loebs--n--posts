@@ -3,7 +3,7 @@
 <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="error">
       <h2><%= @post.errors.count%> fejl gjorde at løbet ikke kunne oprettes:</h2>
 
       <ul>
@@ -19,33 +19,33 @@
     <%= f.hidden_field :post_type, :value => @type %>
   </div>
   <div class="field">
-    <%= f.label :post_navn %><br />
+    <%= f.label :post_navn %>
     <%= f.text_field  :name %>
   </div>
   <div class="field">
-    <%= f.label :post_beskrivelsen %><br />
+    <%= f.label :post_beskrivelsen %>
 	<%= f.text_area :description %>
   </div>
 <% if @type != "human" %>
   <div class="field">
-    <%= f.label :det_rigtige_svar %><br />
+    <%= f.label :det_rigtige_svar %>
     <%= f.text_field :rigtig_svar_ans %>
   </div>
   <div class="field">
-    <%= f.label :tekst_ved_rigtig_svar %><br />
+    <%= f.label :tekst_ved_rigtig_svar %>
 	<%= f.text_area :rigtig_svar %>
   </div>
   <div class="field">
-    <%= f.label :tekst_ved_forkert_svar %><br />
+    <%= f.label :tekst_ved_forkert_svar %>
 	<%= f.text_area :forkert_svar %>
   </div>
   <div class="field">
-    <%= f.label :proev_igen_ved_forkert_svar %><br />
+    <%= f.label :proev_igen_ved_forkert_svar %>
     <%= f.check_box :try_again %>
   </div>
 <% end %>
   <div class="field">
-    <%= f.label :Placering %><br />
+    <%= f.label :Placering %>
     <%= f.text_field :placement %>
   </div>
   <div class="actions">

@@ -39,13 +39,15 @@ require 'date'
 		<%= link_to 'Print poster', loeb_path(@loeb, :print=>true), :class => 'button' %>
 	</p>
 	<% if @loeb.posts.empty? %>
-	<h3>Kom godt igang</h3>
-	<p>
-		Du har nu oprettet et løb, men manger at oprette nogle poster.<br/> På de to links nenden for kan du oprette poster. <br/>De levende poster indeholder ingen spørgsmål og svar, men blot en tekst. Det kan du bruge hvis holdet bare skal sendes videre eller det er en levende post. <br/>Det andet link giber mulighed for at lave en post hvor deltagerne skal svare rigtigt på et spørgsmål for at komme videre.
-	</p>
-	<p>
-		Efter dit løbsnavn står der et id. Det id skal du give til andre der også gerne må lave poster til løbet. Løbets id er: "<%= @loeb.custom_id %>".
-	</p>
+	<div class="guide">
+		<h3>Kom godt igang</h3>
+		<p>Du har nu oprettet et løb, men manger at oprette poster.<br/> Du kan oprette poster med de to knapper herunder. </p>
+			<p>De levende poster indeholder ingen spørgsmål og svar, men blot en tekst. Dem kan du bruge hvis holdet bare skal sendes videre eller det er en levende post. </p>
+			<p>Den anden knap laver en post hvor deltagerne skal svare rigtigt på et spørgsmål for at komme videre.</p>
+		<p>
+			For at ændre i løbet, skal du bruge en kode. <a href="javascript:(function(){$('#secretCode').css('display', 'inline')})()" class="button small">Vis koden</a><span id="secretCode" style="display: none; text-decoration: italic"> Koden er "<%= @loeb.custom_id %>".</span>
+		</p>
+	</div>
 	<% else %>
 		<h2>Poster</h2>
 		<table class="pretty">
