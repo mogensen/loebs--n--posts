@@ -237,7 +237,7 @@ module WillPaginate
       links = @options[:page_links] ? windowed_links : []
       # previous/next buttons
       links.unshift page_link_or_span(@collection.previous_page, "disabled #{@options[:add_prev_class].join ' '} prev_page", @options[:previous_label])
-      links.push    page_link_or_span(@collection.next_page,     "disabled #{@options[:add_next_class].join ' '}next_page", @options[:next_label])
+      links.push    page_link_or_span(@collection.next_page,     "disabled #{@options[:add_next_class].join ' '} next_page", @options[:next_label])
       
       html = links.join(@options[:separator])
       html = html.html_safe if html.respond_to? :html_safe
