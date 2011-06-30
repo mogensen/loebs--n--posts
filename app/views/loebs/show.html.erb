@@ -62,12 +62,12 @@ require 'date'
     <td><%= p.id %></td>
     <td><%= p.name %></td>
     <td><%= p.placement %></td>
-	<td><%= link_to 'Opdater post', edit_post_path(p) %></p>
-	<td><%= button_to('Slet post', post_path(p), :confirm => 'Er du sikker?', :method => :delete, :disable_with => 'loading...') %></p>
+	<td><%= button_to 'Opdater post', edit_post_path(p), :method => :get %></p>
+	<td><%= button_to('Slet post', post_path(p), :confirm => 'Er du sikker?', :method => :delete) %></p>
   </tr>
 <% end %>
 </table>
 <% end %>
-<%= link_to 'Opret spørgsmåls post', new_post_path(:type=>"normal", :loeb => @loeb.id) %>
-<%= link_to 'Opret levende post', new_post_path(:type=>"human", :loeb => @loeb.id) %>
+<%= link_to 'Opret spørgsmåls post', new_post_path(:type=>"normal", :loeb => @loeb.id), :method => :get %>
+<%= link_to 'Opret levende post', new_post_path(:type=>"human", :loeb => @loeb.id), :method => :get %>
 <% end %>
