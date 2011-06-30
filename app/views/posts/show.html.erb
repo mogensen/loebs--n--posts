@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if !notice.nil? %>
+	<p id="notice"><%= notice %></p>
+<% end %>
 
 <h1>
   <%= @post.loeb.name unless @post.loeb.nil? %>

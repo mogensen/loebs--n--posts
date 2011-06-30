@@ -1,11 +1,10 @@
 <h1>Alle løb</h1>
 
-<table>
+<table class="pretty">
   <tr>
     <th>Navn</th>
-    <th></th>
+    <th colspan="2"></th>
   </tr>
-
 <% @loebs.each do |loeb| %>
   <tr>
     <td><%= loeb.name %></td>
@@ -17,4 +16,4 @@
 
 <br />
 
-<%= link_to 'Nyt løb', new_loeb_path %>
+<%= link_to 'Nyt løb', new_loeb_path, :class => 'button' %>

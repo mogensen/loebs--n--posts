@@ -8,7 +8,7 @@ body {
 	letter-spacing: .07em;
 	line-height: 1.5em;
 }
-.small, .button.small {
+.small {
 	font-size: .7em;
 }
 table.pretty {
@@ -33,12 +33,25 @@ table.pretty {
 	}
 	th, td {
 		text-align: left;
-		padding: 1px .5em;
-		
-		.button {
-			&.small {
-				margin-top: .8em;
-			}
-		}
+		padding: .4em .5em;
 	}
+}
+#notice, .notice,
+.error {
+	.border-radius(.4em);
+	display: inline-block;
+	text-shadow: 0 1px 2px rgba(0,0,0,.3);
+	.box-shadow(0, 1px, 2px, rgba(0,0,0,.3));
+	margin-bottom: -1em;
+	padding: .2em .5em;
+}
+#notice, .notice {
+	color: #080;
+	border: 1px solid #080;
+	background-color: rgba(200,255,200,.5);
+}
+.error {
+	color: #800;
+	border: 1px solid #800;
+	background-color: rgba(255,200,200,.5);
 }

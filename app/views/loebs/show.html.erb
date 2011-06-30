@@ -28,14 +28,18 @@ require 'date'
 			    <p class="postID">Post ID: <%= p.id %></p>
 			</section>
 			<% end %>
-			<p id="notice"><%= notice %></p>
+			<% if !notice.nil? %>
+				<p id="notice"><%= notice %></p>
+			<% end %>
 		</body>
 	</html>
 <% else %>
-	<p id="notice"><%= notice %></p>
+	<% if !notice.nil? %>
+		<p id="notice"><%= notice %></p>
+	<% end %>
 	<h1><%= @loeb.name %></h1>
 	<p class="buttonContainer">
-		<%= link_to 'Ændre løb', edit_loeb_path(@loeb), :class => 'button' %> 
+		<%= link_to 'Redigér løb', edit_loeb_path(@loeb), :class => 'button' %> 
 		<%= link_to 'Print poster', loeb_path(@loeb, :print=>true), :class => 'button' %>
 	</p>
 	<% if @loeb.posts.empty? %>
