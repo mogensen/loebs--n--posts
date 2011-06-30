@@ -23,8 +23,6 @@
 	<section>
 		<% if not @loebs.empty? %>
 			<h2>De <%= @loebs.count %> aktuelle løb</h2>
-			<%= will_paginate @loebs %>
-			<%= page_entries_info @loebs %>
 			<ul class="loebsList">
 				<% @loebs.each do |l| %>
 					<li id="loeb_<%= l.id %>">
@@ -42,6 +40,8 @@
 					</li>
 				<% end %>
 			</ul>
+			<%= will_paginate @loebs, :next_label => "Nyere »", :prev_label => "« Ældre", :class => "buttonContainer" %>
+			
 		<% else %>
 			<h2>Lav et løb</h2>
 			<p>Der er ingen aktuelle løb, men du skal være velkommen til at lave det næste!</p>
