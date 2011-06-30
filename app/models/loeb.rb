@@ -1,5 +1,8 @@
 #encoding: utf-8
 class Loeb < ActiveRecord::Base
+    cattr_reader :per_page
+    @@per_page = 5
+    
     has_many :posts
     
     validates :name, :presence => {:message =>" skal være der"}, :length => { :maximum => 100 }

@@ -23,6 +23,8 @@
 	<section>
 		<% if not @loebs.empty? %>
 			<h2>De <%= @loebs.count %> aktuelle løb</h2>
+			<%= will_paginate @loebs %>
+			<%= page_entries_info @loebs %>
 			<ul class="loebsList">
 				<% @loebs.each do |l| %>
 					<li id="loeb_<%= l.id %>">
