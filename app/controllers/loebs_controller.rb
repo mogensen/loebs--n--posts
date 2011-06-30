@@ -4,6 +4,11 @@ class LoebsController < ApplicationController
   # GET /loebs
   # GET /loebs.xml
   def index
+      if not params.has_key? "davse_er_kool"
+          redirect_to '/'
+          return
+      end
+      
     @loebs = Loeb.all
 
     respond_to do |format|
@@ -17,10 +22,11 @@ class LoebsController < ApplicationController
   def show
     @loeb = Loeb.find(params[:id]) if params.has_key? :id
     @loeb = Loeb.where(:custom_id => params['custom_id']).first if params.has_key? 'custom_id'
-    
+
     if @loeb.nil?
         redirect_to '/'
     else
+        session[:loebs_id] = @loeb.id
         do_layout = params.has_key? "print"
     
         respond_to do |format|

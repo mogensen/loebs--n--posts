@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.xml
   def index
       redirect_to '/'
+      return
       
 #    @posts = Post.all
 
@@ -59,6 +60,11 @@ class PostsController < ApplicationController
     @loeb_id = @post.loeb_id
     @loebs = Loeb.all.map { |loeb| [loeb.name, loeb.id] }
     @type = @post.post_type
+    if session[:loebs_id].to_i != @loeb_id.to_i   
+        session[:loebs_id] = nil    
+        redirect_to '/', :notice => "Du har ikke adgang her."
+        return
+    end
   end
 
   # POST /posts
