@@ -24,7 +24,7 @@ require 'date'
 			<p class="duration">
 				Løbet strækker sig fra <strong><%= @loeb.start.strftime("%d/%m/%Y kl. %H:%M") rescue "" %></strong> til <strong><%=@loeb.slut.strftime("%d/%m/%Y kl. %H:%M") rescue ""%></strong>
 			</p>
-		    <img src="http://qrcode.kaywa.com/img.php?s=2&d=http%3A%2F%2Fscoutrace.dk%2Fposts%2F<%= p.id %>"/>
+		    <img src="http://qrcode.kaywa.com/img.php?s=3&d=http%3A%2F%2Fscoutrace.dk%2Fposts%2F<%= p.id %>"/>
 		    <p class="postID">Post ID: <%= p.id %></p>
 		</section>
 		<% end %>
