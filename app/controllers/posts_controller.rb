@@ -47,6 +47,11 @@ class PostsController < ApplicationController
     @type = "normal"
     @type = params[:type] if params.has_key? "type"
     @loeb_id = params[:loeb]
+    if session[:loebs_id].to_i != @loeb_id.to_i   
+        session[:loebs_id] = nil    
+        redirect_to '/', :notice => "Du har ikke adgang her."
+        return
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -105,6 +110,11 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    if session[:loebs_id].to_i != @post.loeb_id.to_i   
+        session[:loebs_id] = nil    
+        redirect_to '/', :notice => "Du har ikke adgang her."
+        return
+    end
 
     respond_to do |format|
       format.html { redirect_to(posts_url) }

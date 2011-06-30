@@ -21,8 +21,11 @@ class LoebsController < ApplicationController
   # GET /loebs/1.xml
   def show
     @loeb = Loeb.find(params[:id]) if params.has_key? :id
-    @loeb = Loeb.where(:custom_id => params['custom_id']).first if params.has_key? 'custom_id'
-
+    if params.has_key? 'custom_id'
+        @loeb = Loeb.where(:custom_id => params['custom_id']).first 
+        redirect_to loeb_path @loeb
+        return
+    end
     if @loeb.nil?
         redirect_to '/'
     else

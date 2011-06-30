@@ -63,6 +63,7 @@ require 'date'
     <td><%= p.name %></td>
     <td><%= p.placement %></td>
 	<td><%= link_to 'Opdater post', edit_post_path(p) %></p>
+	<td><%= button_to('Slet post', post_path(p), :confirm => 'Er du sikker?', :method => :delete, :disable_with => 'loading...') %></p>
   </tr>
 <% end %>
 </table>
