@@ -8,7 +8,7 @@ class LoebsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @loebs }
+      format.xml  { render :html => @loebs }
     end
   end
 
@@ -25,7 +25,7 @@ class LoebsController < ApplicationController
     
         respond_to do |format|
             format.html { render :html => @loeb, :layout => (not do_layout)}# show.html.erb
-            format.xml  { render :xml => @loeb }
+            format.xml  { render :html => @loeb }
         end
     end
   end
