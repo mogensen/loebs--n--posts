@@ -5,4 +5,4 @@ section.post h1{margin:.5em 0 .2em;}
 section.post p.contact,section.post p.duration{color:#aaa;font-size:.7em;margin:0;line-height:1em;padding:0;}
 section.post p.duration{margin-top:.5em;font-size:.5em;}
 section.post p.postID{margin-left:.7em;}
-section.post img{margin:1em 1em 0;}
+section.post img{margin:1em 1em 0;height:75px;width:75px;}
