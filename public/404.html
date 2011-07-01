@@ -1,27 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
-  <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
-    }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
-  </style>
+  <title>Noget gik galt (404)</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+	<link href='http://fonts.googleapis.com/css?family=Copse' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=1.0" />
+	
+	<style type="text/css">
+		article {
+			max-width: 900px;
+			margin: auto;
+			color: #fff;
+			position: relative;
+			text-shadow: 0 .1em .2em rgba(0,0,0,.5);
+		}
+		img.largeDevices {
+			display: block;
+			float: left;
+			max-width: 29%;
+		}
+		img.smallDevices {
+			display: none;
+			margin-top: 1em;
+			float: none;
+			width: 150px;
+			max-width: none;
+		}
+		h1 {
+			padding-top: 10%;
+		}
+		@media screen and (max-width: 400px) {
+			article {
+				text-align: center;
+				padding: 1em;
+			}
+			img.largeDevices {
+				display: none;
+			}
+			img.smallDevices {
+				display: inline-block;
+			}
+			h1, p {
+				text-align: left;
+			}
+			h1 {
+				padding-top: 0;
+			}
+		}
+		@media screen and (min-width: 401px) {
+			h1, p {
+				margin-left: 30%;
+			}
+		}
+		
+	</style>
 </head>
 
 <body>
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <h1>Kunne ikke finde siden.</h1>
-    <p>Hvis du søgte efter en post, tastede du sikkert galt ID.</p>
-	<p><a href='/'>Retur</a></p>
-  </div>
+	<!-- This file lives in public/404.html -->
+	<article class="dialog" id="error404">
+		<img src="/images/404.png" class="largeDevices" />
+		<h1>Noget gik galt.</h1>
+		<p>Hvis du ville se en post, skrev du sikkert et forkert ID.</p>
+		<p><a href='/' class="button">Tilbage til forsiden</a></p>
+		<img src="/images/404.png" class="smallDevices" />
+	</article>
 </body>
 </html>
