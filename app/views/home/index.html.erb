@@ -35,7 +35,7 @@
 									<input type="submit" value="ok"/>
 								</span>
 								<a href="javascript:editLoeb(<%= l.id %>)" class="edit">Redigér</a>
-								<%= link_to 'Tilmeld hold', new_team_path(:loeb=>l.id), :class=>"edit" %>
+								<%= link_to 'Tilmeld hold', new_team_path(:loeb=>l.id), :class=>"edit" if l.create_teams%>
 							</span>
 						</form>
 					</li>
