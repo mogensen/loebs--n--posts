@@ -36,7 +36,15 @@ class LoebsController < ApplicationController
     else
         session[:loebs_id] = @loeb.id
         do_layout = params.has_key? "print"
-    
+        answers = Answer.where(:loeb_id => @loeb.id)
+        @table = {}
+        answers.each do |a|
+            if not a.team_id.nil?
+                @table[a.team_id] = {} if @table[a.team_id].nil?
+                @table[a.team_id][a.post_id] = a.no_of_answers
+            end
+        end
+        puts @table.inspect
         respond_to do |format|
             format.html { render :html => @loeb, :layout => (not do_layout)}# show.html.erb
             format.xml  { render :html => @loeb }

@@ -103,4 +103,31 @@ require 'date'
 	<p class="buttonContainer">
 		<%= link_to 'Opret hold', new_team_path(:loeb => @loeb.id), :class => 'button' %>
 	</p>
+	<% if @loeb.teams.length > 0 %>
+		<h2>Statestik</h2>
+		Antal svar for hvert hold per post. Hvis svaret er 0 har de ikke svaret. Hvis det er 1, har de svaret minimum 1 gang. Det vil sige, hvis svaret kun er 1 har de svaret rigtigt i første forsøg.
+		<table>
+			<tr>
+				<th>Post</th>
+				<% @loeb.posts.each do |p| %>
+					<td><%= p.id%></td>
+				<% end %>
+			</tr>
+			<tr>
+				<th>Hold</th>
+			</tr>
+			<% @loeb.teams.each do |team| %>
+				<tr>
+					<td><%=team.name %></td>
+					<% @loeb.posts.each do |p| %>
+						<% if not @table[team.id].nil? %>
+							<td><%= @table[team.id][p.id]%></td>
+						<% else %>
+							<td><%= 0%></td>
+						<% end %>
+					<% end %>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
 <% end %>
