@@ -2,6 +2,13 @@
 	<p id="notice"><%= notice %></p>
 <% end %>
 
+<% if @post.loeb.teams.length > 0 and session[:team_id].nil? %>
+	<h1>Indtast hold kode for at komme videre</h1>
+	<form action='<%=request.request_uri%>'>
+		<%= text_field 'team_id', 'team_id'%>
+		<input type="submit" value="Svar" />
+	</form>
+<% else %>
 <h1>
   <%= @post.loeb.name unless @post.loeb.nil? %>
 </h1>
@@ -28,3 +35,4 @@
 		});
 	});
 </script>
+<% end %>

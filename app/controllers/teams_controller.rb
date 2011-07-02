@@ -44,9 +44,11 @@ class TeamsController < ApplicationController
     @team = Team.new(params[:team])
     @loeb = Loeb.find(@team.loeb_id)
 
+    session[:team_id] = @team.id
+
     respond_to do |format|
       if @team.save
-        format.html { redirect_to(@loeb, :notice => 'Holdet blev oprettet.')}
+        format.html { redirect_to((session.has_key?(:loebs_id) ? @loeb : '/'), :notice => 'Holdet blev oprettet.')}
         format.xml  { render :xml => @team, :status => :created, :location => @team }
       else
         format.html { render :action => "new" }

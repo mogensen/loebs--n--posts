@@ -18,6 +18,10 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
+      if params.has_key? :team_id
+          team = Team.where(:code => params[:team_id][:team_id]).first
+          session[:team_id] = team.id
+      end
       begin
           @post = Post.find(params[:id])
           respond_to do |format|
@@ -31,7 +35,21 @@ class PostsController < ApplicationController
 
   def answer
     @post = Post.find(params[:postid])
-    
+    #See if it is there allreday
+    as = Answer.where(:loeb_id => @post.loeb_id, :post_id => @post.id, :team_id => session[:team_id])
+    if not as.nil? and as.length > 0
+        a = as.first
+        a.answers += ', '+params[:answer]
+        a.no_of_answers += 1
+    else
+        a = Answer.new
+        a.loeb_id = @post.loeb_id
+        a.post_id = @post.id
+        a.team_id = session[:team_id]
+        a.answers = params[:answer]
+        a.no_of_answers = 1
+    end
+    a.save
     respond_to do |format|
       format.html # answer.html.erb
       format.xml  { render :html => @post }

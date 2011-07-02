@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  loeb_id: 1
+  post_id: 1
+  team_id: 1
+  no_of_answers: 1
+  answers: MyText
+
+two:
+  loeb_id: 1
+  post_id: 1
+  team_id: 1
+  no_of_answers: 1
+  answers: MyText

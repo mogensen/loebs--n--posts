@@ -2,8 +2,7 @@
 class Team < ActiveRecord::Base
     belongs_to :loeb
     
-    validates :name, :presence => {:message =>" skal være der"}, :length => { :maximum => 100 }
+    validates :name, :presence => {:message =>" skal være der"}, :length => { :maximum => 100 }, :uniqueness => {:scope => :loeb_id}
     validates :contact, :presence => {:message =>" skal være der"}
-    validates :code, :presence => {:message =>" skal være der"}
-    validates :code, :uniqueness => {:scope => :loeb_id}
+    validates :code, :presence => {:message =>" skal være der"}, :uniqueness => {:scope => :loeb_id}
 end

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110702084940) do
+ActiveRecord::Schema.define(:version => 20110702095507) do
+
+  create_table "answers", :force => true do |t|
+    t.integer  "loeb_id"
+    t.integer  "post_id"
+    t.integer  "team_id"
+    t.integer  "no_of_answers"
+    t.text     "answers"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                                 :null => false
