@@ -30,11 +30,12 @@
 							<strong class="title"><%= l.name %></strong>
 							<span class="actions">
 								<span class="edit">
-									Custom løbs id:
+									Kode:
 									<input type="password" name='custom_loeb_id' />
 									<input type="submit" value="ok"/>
 								</span>
 								<a href="javascript:editLoeb(<%= l.id %>)" class="edit">Redigér</a>
+								<%= link_to 'Tilmeld hold', new_team_path(:loeb=>l.id), :class=>"edit" %>
 							</span>
 						</form>
 					</li>

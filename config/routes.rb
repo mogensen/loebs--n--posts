@@ -1,4 +1,6 @@
 Loebnposts::Application.routes.draw do
+  resources :teams
+
   resources :posts
 
   resources :loebs

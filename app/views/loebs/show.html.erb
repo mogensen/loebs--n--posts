@@ -17,6 +17,10 @@ require 'date'
 			<link href='http://fonts.googleapis.com/css?family=Copse' rel='stylesheet' type='text/css' />
 		</head>
 		<body>
+			<section class="team_create">
+				<img src="http://qrcode.kaywa.com/img.php?s=3&d=http%3A%2F%2Flocalhost%3A3000%2Fteams%2Fnew%3Floeb%3D<%=@loeb.id%>"/>
+				Scan denne for at oprette hold
+			</section>
 			<% @loeb.posts.each do |p| %>
 			<section class="post">
 				<h1><%=@loeb.name%></h1>
@@ -78,5 +82,25 @@ require 'date'
 	<p class="buttonContainer">
 		<%= link_to 'Spørgsmål', new_post_path(:type=>"normal", :loeb => @loeb.id), :class => 'button' %>
 		<%= link_to 'Levende post', new_post_path(:type=>"human", :loeb => @loeb.id), :class => 'button' %>
+	</p>
+
+	<h2>Hold</h2>
+	<table class="pretty">
+	  <tr>
+	    <th>Hold navn</th>
+	    <th>Kontakt</th>
+	    <th></th>
+	  </tr>
+	<% @loeb.teams.each do |t| %>
+	  <tr>
+	    <td><%= t.name %></td>
+	    <td><%= t.contact %></td>
+		<td><%= button_to 'Opdater hold', edit_team_path(t), {:method => :get, :class => 'small'} %></td>
+		<td><%= button_to('Slet hold', team_path(t), :confirm => 'Er du sikker?', :method => :delete, :class => 'small') %></td>
+	  </tr>
+	<% end %>
+	</table>
+	<p class="buttonContainer">
+		<%= link_to 'Opret hold', new_team_path(:loeb => @loeb.id), :class => 'button' %>
 	</p>
 <% end %>

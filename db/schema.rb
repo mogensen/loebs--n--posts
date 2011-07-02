@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110627192150) do
+ActiveRecord::Schema.define(:version => 20110702084940) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                                 :null => false
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(:version => 20110627192150) do
     t.string   "name",            :default => "Navn"
     t.string   "placement"
     t.string   "post_type"
+  end
+
+  create_table "teams", :force => true do |t|
+    t.string   "name"
+    t.string   "contact"
+    t.string   "code"
+    t.text     "team_members"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "loeb_id"
   end
 
 end

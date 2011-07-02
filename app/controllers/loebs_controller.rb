@@ -20,7 +20,12 @@ class LoebsController < ApplicationController
   # GET /loebs/1
   # GET /loebs/1.xml
   def show
-    @loeb = Loeb.find(params[:id]) if params.has_key? :id
+      begin
+          @loeb = Loeb.find(params[:id]) if params.has_key? :id 
+          rescue 
+              render 'public/404', :status => 404, :layout => false
+              return
+             end
     if params.has_key? 'custom_id'
         @loeb = Loeb.where(:custom_id => params['custom_id']).first 
         redirect_to loeb_path @loeb rescue redirect_to '/', :notice => "Løbet blev ikke fundet"
