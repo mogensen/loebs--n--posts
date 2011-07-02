@@ -4,11 +4,15 @@
 	<h3>Sådan gør du</h3>
 	<ol>
 		<li>Indtast postnavn. Det kan være et navn som "Post 1" eller "Posten ved søen"</li>
+		<% if params[:type] == "human" %>
+		<li>Indtast beskrivelsen af posten eller den besked holdet skal finde ved denne post.</li>
+		<% else %>
 		<li>Indtast opgaven som posten skal svare på</li>
 		<li>Indtast den rigtige svar mulighed. Der bliver ikke taget hensyn til store og små bogstaver i svaret.</li>
 		<li>Indtast den tekst der kommer ved rigtigt svar. Det kunne være hvor holder nu skal gå hen.</li>
 		<li>Indtast den tekst der kommer frem ved forkert svar. Det kunne være en opmuntrende besked, eller et hint.</li>
 		<li>Vælg om der skal dukke et "Prøv igen"-link op ved forkert svar</li>
+		<% end %>
 		<li>Skriv hvor posten er placeret. Dette felt bliver ikke vist til holdet, men er kun til brug for dig.</li>
 	</ol>
 </section>
