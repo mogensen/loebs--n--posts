@@ -27,7 +27,7 @@
 				<% @loebs.each do |l| %>
 					<li id="loeb_<%= l.id %>">
 						<form>
-							<strong class="title"><%= l.name %></strong>
+							<strong class="title"><%= l.name %> <%= l.start.strftime("%d/%m") rescue "" %> - <%= l.slut.strftime("%d/%m") rescue "" %></strong>
 							<span class="actions">
 								<span class="edit">
 									Kode:

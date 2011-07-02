@@ -17,6 +17,7 @@ Loebnposts::Application.routes.draw do
   match 'posts/:postid/:answer' => 'posts#answer'
 
   match '/about' => 'home#about'
+  match '/help' => 'home#help'
   match '/loebs/custom_id/:custom_id' => 'loebs#show'
 
   # Sample of named route:
