@@ -1,5 +1,7 @@
 #encoding: utf-8
 
+require 'csv'
+
 class LoebsController < ApplicationController
   # GET /loebs
   # GET /loebs.xml
@@ -44,10 +46,9 @@ class LoebsController < ApplicationController
                 @table[a.team_id][a.post_id] = a.no_of_answers
             end
         end
-        puts @table.inspect
         respond_to do |format|
             format.html { render :html => @loeb, :layout => (not do_layout)}# show.html.erb
-            format.xml  { render :html => @loeb }
+            format.csv  { export_to_csv answers, @loeb.name }
         end
     end
   end
@@ -118,4 +119,19 @@ class LoebsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  protected
+  
+    def export_to_csv(data, name)
+        csv_string = CSV.generate do |csv|
+            csv << ["post_id", "hold_navn", "no_of_answers","answers", "foerste_svar", "seneste_svar"]
+            data.each do |d|
+                t = Team.find(d.team_id) rescue Team.new
+                p = Post.find(d.post_id) rescue Post.new
+                csv << [p.name, t.name, d.no_of_answers, d.answers, d.created_at, d.updated_at]
+            end
+        end
+        send_data csv_string, :filename => name+'.csv'
+    end
+  
 end

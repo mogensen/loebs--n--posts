@@ -129,5 +129,6 @@ require 'date'
 				</tr>
 			<% end %>
 		</table>
+		<%= link_to 'Download som CSV til Excel', loeb_path(@loeb, :format => :csv), :class => 'button'%>
 	<% end %>
 <% end %>
