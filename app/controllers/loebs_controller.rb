@@ -128,7 +128,7 @@ class LoebsController < ApplicationController
             data.each do |d|
                 t = Team.find(d.team_id) rescue Team.new
                 p = Post.find(d.post_id) rescue Post.new
-                csv << [p.name, t.name, d.no_of_answers, d.answers, d.created_at, d.updated_at]
+                csv << [p.id.to_s+' - '+p.name, t.name, d.no_of_answers, d.answers, d.created_at, d.updated_at]
             end
         end
         send_data csv_string, :filename => name+'.csv'
