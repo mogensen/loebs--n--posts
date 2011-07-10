@@ -107,10 +107,10 @@ require 'date'
 		<h2>Statestik</h2>
 		Antal svar for hvert hold per post. Hvis svaret er 0 har de ikke svaret. Hvis det er 1, har de svaret minimum 1 gang. Det vil sige, hvis svaret kun er 1 har de svaret rigtigt i første forsøg.
 		<table>
-			<tr>
-				<th>Post</th>
+			<tr style="border-bottom: 1px solid black">
+				<th style="border-bottom: 1px solid black">Post</th>
 				<% @loeb.posts.each do |p| %>
-					<td><%= p.id%></td>
+					<td style="border-bottom: 1px solid black">|<%= p.id%> - <%= p.name%>|</td>
 				<% end %>
 			</tr>
 			<tr>
@@ -118,12 +118,12 @@ require 'date'
 			</tr>
 			<% @loeb.teams.each do |team| %>
 				<tr>
-					<td><%=team.name %></td>
+					<td style="border-bottom: 1px solid black"><%=team.name %></td>
 					<% @loeb.posts.each do |p| %>
 						<% if not @table[team.id].nil? %>
-							<td><%= @table[team.id][p.id]%></td>
+							<td style="border: 1px solid black"><%= @table[team.id][p.id]%></td>
 						<% else %>
-							<td><%= 0%></td>
+							<td style="border: 1px solid black"><%= 0%></td>
 						<% end %>
 					<% end %>
 				</tr>
