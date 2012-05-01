@@ -23,7 +23,8 @@ require 'date'
 			</section>
 			<% @loeb.posts.each do |p| %>
 			<section class="post">
-				<h1><%=@loeb.name%></h1>
+				<h2><%=@loeb.name%></h2>
+				<h1><%= p.name%></h1>
 				<p class="contact">Udlagt af <%= @loeb.contact%>.</p>
 				<p class="duration">
 					Løbet strækker sig fra <strong><%= @loeb.start.strftime("%d/%m/%Y kl. %H:%M") rescue "" %></strong> til <strong><%=@loeb.slut.strftime("%d/%m/%Y kl. %H:%M") rescue ""%></strong>
